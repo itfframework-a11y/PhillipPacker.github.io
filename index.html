@@ -182,6 +182,51 @@
     color: var(--text-dim);
   }
 
+  .flow {
+    margin: 24px 0 28px;
+    border-left: 2px solid var(--border);
+    padding-left: 20px;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .flow .node {
+    position: relative;
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+  .flow .node::before {
+    content: "";
+    position: absolute;
+    left: -25px;
+    top: 5px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .stat-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px; margin: 22px 0 28px;
+  }
+  .stat-box {
+    background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .stat-box .n { font-weight: 700; font-size: 1.35rem; color: var(--accent); }
+  .stat-box .l { font-size: 0.8rem; color: var(--text-dim); margin-top: 2px; }
+  .provenance-block {
+    background: var(--accent-soft); border-left: 3px solid var(--accent);
+    border-radius: 4px; padding: 16px 20px; margin: 0 0 28px; font-size: 0.95rem; color: var(--text-dim);
+  }
+  .provenance-block .label {
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--accent); font-weight: 700; margin-bottom: 6px; display: block;
+  }
+  .proof-notice {
+    font-size: 0.88rem; color: var(--text-dim); border-top: 1px solid var(--border);
+    padding-top: 18px; margin-top: 6px;
+  }
+  .proof-notice strong { color: var(--text); }
+
   footer.contact {
     padding: 56px 0 80px;
   }
@@ -215,6 +260,7 @@
       <a href="#about">About</a>
       <a href="#principles">Core Principles</a>
       <a href="#kernel">Governance Kernel</a>
+      <a href="#proof">Proof of Work</a>
       <a href="#frameworks">Frameworks &amp; Systems</a>
       <a href="#how">How I Work</a>
       <a href="#focus">Operational Focus</a>
@@ -252,6 +298,39 @@
         <h3><span class="tag">AXIS</span> — Adaptive Expression Intelligence System</h3>
         <p>A delivery-governance layer that adapts communication style and structure while preserving factual integrity and logical consistency.</p>
       </div>
+    </div>
+  </section>
+
+  <section id="proof">
+    <h2>Proof of Work</h2>
+    <p class="lede" style="margin-bottom: 20px;">The governance kernel behind ITF and AXIS is implemented, tested, and versioned — not just named. Below is verifiable detail on how it's built and validated, without exposing the runtime source, rule registry, or canon specification itself.</p>
+
+    <div class="flow">
+      <div class="node">Delivery + evaluation attempt</div>
+      <div class="node">Evaluator registry</div>
+      <div class="node">Canonical signals + typed conflicts</div>
+      <div class="node">Contract gate + deterministic kernel</div>
+      <div class="node">Decision-bound execution boundary</div>
+      <div class="node">Atomic trace + state commit</div>
+      <div class="node">Security ledger + checkpoints</div>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-box"><div class="n">12</div><div class="l">ratified engineering formalizations (EF1–EF12)</div></div>
+      <div class="stat-box"><div class="n">53</div><div class="l">passing conformance &amp; integration tests</div></div>
+      <div class="stat-box"><div class="n">103</div><div class="l">registered, stable rule identities</div></div>
+      <div class="stat-box"><div class="n">36</div><div class="l">tri-state semantic predicates</div></div>
+      <div class="stat-box"><div class="n">16+</div><div class="l">canon-derived fixture scenarios</div></div>
+      <div class="stat-box"><div class="n">100%</div><div class="l">hash-chain integrity verified on trace, status &amp; security ledgers</div></div>
+    </div>
+
+    <div class="provenance-block">
+      <span class="label">Authorship &amp; Process</span>
+      Runtime scope and required capabilities are creator-directed; code, schemas, API design, and tests are model-formalized against that direction. This division is recorded explicitly for every build — a documented separation between what was specified and what was implemented, re-verified at each versioned candidate.
+    </div>
+
+    <div class="proof-notice">
+      <strong>Source is proprietary and not publicly published.</strong> The runtime, rule registry, and full governance canon represent the commercial core of this work. Available for review under NDA — reach out via the contact section below.
     </div>
   </section>
 
