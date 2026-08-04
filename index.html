@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phillip Packer — Independent AI Systems Designer</title>
+<meta name="description" content="Phillip Packer builds frameworks for AI reasoning governance, interaction literacy, cognitive assessment, and structured decision systems.">
+<style>
+  :root {
+    --bg: #0e0f11;
+    --bg-alt: #16181b;
+    --border: #26292e;
+    --text: #e8e6e1;
+    --text-dim: #a9a49c;
+    --accent: #c9812f;
+    --accent-soft: rgba(201, 129, 47, 0.12);
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #faf8f5;
+      --bg-alt: #ffffff;
+      --border: #e7e2da;
+      --text: #201d18;
+      --text-dim: #6b6459;
+      --accent: #a8641f;
+      --accent-soft: rgba(168, 100, 31, 0.08);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0e0f11; --bg-alt: #16181b; --border: #26292e;
+    --text: #e8e6e1; --text-dim: #a9a49c; --accent: #c9812f; --accent-soft: rgba(201, 129, 47, 0.12);
+  }
+  :root[data-theme="light"] {
+    --bg: #faf8f5; --bg-alt: #ffffff; --border: #e7e2da;
+    --text: #201d18; --text-dim: #6b6459; --accent: #a8641f; --accent-soft: rgba(168, 100, 31, 0.08);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  header.hero {
+    padding: 96px 0 56px;
+    border-bottom: 1px solid var(--border);
+  }
+  header.hero .eyebrow {
+    color: var(--accent);
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  header.hero h1 {
+    font-size: clamp(2rem, 5vw, 2.9rem);
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+  }
+  header.hero .role {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    margin: 0 0 20px;
+  }
+  header.hero .tagline {
+    font-size: 1.15rem;
+    font-weight: 500;
+    max-width: 52ch;
+  }
+  nav.jump {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+  }
+  nav.jump a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-bottom: 1px solid transparent;
+  }
+  nav.jump a:hover { color: var(--accent); border-color: var(--accent); }
+
+  section { padding: 52px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+
+  h2 {
+    color: var(--accent);
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    margin: 0 0 22px;
+  }
+
+  p { color: var(--text); max-width: 68ch; }
+  .lede { color: var(--text-dim); }
+
+  ul.principles {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px 24px;
+  }
+  ul.principles li {
+    padding-left: 20px;
+    position: relative;
+    color: var(--text);
+  }
+  ul.principles li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .kernel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+  }
+  .card {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 24px;
+  }
+  .card h3 {
+    margin: 0 0 8px;
+    font-size: 1.02rem;
+  }
+  .card h3 .tag {
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .card p { margin: 0; font-size: 0.95rem; color: var(--text-dim); }
+
+  .fw-list { display: flex; flex-direction: column; gap: 22px; }
+  .fw-item h3 { margin: 0 0 6px; font-size: 1.05rem; }
+  .fw-item h3 .tag { color: var(--accent); font-weight: 700; }
+  .fw-item p { margin: 0; color: var(--text-dim); font-size: 0.97rem; }
+
+  ol.how {
+    margin: 0;
+    padding-left: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  ol.how li { padding-left: 4px; }
+  .how-note {
+    margin-top: 20px;
+    padding: 14px 18px;
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    color: var(--text-dim);
+  }
+
+  .tag-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .tag-row span {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+  }
+
+  footer.contact {
+    padding: 56px 0 80px;
+  }
+  footer.contact h2 { margin-bottom: 16px; }
+  footer.contact .name { font-weight: 700; font-size: 1.1rem; margin-bottom: 4px; }
+  footer.contact .loc { color: var(--text-dim); margin-bottom: 14px; }
+  footer.contact a.email {
+    display: inline-block;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 2px;
+  }
+  footer.contact .fine {
+    margin-top: 40px;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">Independent AI Systems Designer</div>
+    <h1>Phillip Packer</h1>
+    <p class="role">Reasoning governance · Interaction literacy · Structured decision systems</p>
+    <p class="tagline">Making AI work the way it should.</p>
+    <nav class="jump">
+      <a href="#about">About</a>
+      <a href="#principles">Core Principles</a>
+      <a href="#kernel">Governance Kernel</a>
+      <a href="#frameworks">Frameworks &amp; Systems</a>
+      <a href="#how">How I Work</a>
+      <a href="#focus">Operational Focus</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I build frameworks that bring clarity, accountability, and practical structure to how people and organizations use AI systems. My work focuses on reasoning governance, interaction literacy, cognitive assessment, and structured decision systems that function across models and platforms.</p>
+    <p class="lede">I came to AI systems work through decades of operational experience, territory management, and process accountability. That background shaped how I approach AI: identify where systems fail, reduce ambiguity, isolate assumptions, and build structures that hold up under pressure. My frameworks are designed to be usable by real people in real environments — not only technical specialists.</p>
+  </section>
+
+  <section id="principles">
+    <h2>Core Principles</h2>
+    <ul class="principles">
+      <li>Truth before tone</li>
+      <li>Clear boundaries and scope enforcement</li>
+      <li>Failure-mode analysis before deployment</li>
+      <li>Model-agnostic framework design</li>
+      <li>Human-readable documentation and guidance</li>
+      <li>Real-world testing across multiple AI models</li>
+    </ul>
+  </section>
+
+  <section id="kernel">
+    <h2>Governance Kernel</h2>
+    <p class="lede" style="margin-bottom: 20px;">Every framework in this portfolio is built on two interlocking governance systems.</p>
+    <div class="kernel-grid">
+      <div class="card">
+        <h3><span class="tag">ITF</span> — Integrated Truth Framework</h3>
+        <p>A reasoning-governance system enforcing Verify → Align → Apply → Communicate sequencing to reduce drift, unstable assumptions, and hallucinated reasoning.</p>
+      </div>
+      <div class="card">
+        <h3><span class="tag">AXIS</span> — Adaptive Expression Intelligence System</h3>
+        <p>A delivery-governance layer that adapts communication style and structure while preserving factual integrity and logical consistency.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="frameworks">
+    <h2>Frameworks &amp; Systems</h2>
+    <div class="fw-list">
+      <div class="fw-item">
+        <h3><span class="tag">CAAS</span> — Cognitive Architecture Assessment System</h3>
+        <p>Conversational framework for identifying reasoning patterns, learning tendencies, and meaning-making structures without clinical scoring or labels.</p>
+      </div>
+      <div class="fw-item">
+        <h3><span class="tag">AURA</span> — AI Usage Readiness Assessment</h3>
+        <p>Assessment framework helping individuals and organizations understand AI adoption readiness, trust calibration, and operational interaction patterns.</p>
+      </div>
+      <div class="fw-item">
+        <h3><span class="tag">AURA-IL</span> — Interaction &amp; Prompting Literacy</h3>
+        <p>Educational module focused on abstraction control, prompting clarity, interaction mechanics, and AI communication literacy.</p>
+      </div>
+      <div class="fw-item">
+        <h3><span class="tag">DIS + CLEAR</span> — Decision Information System &amp; Clarity Interface</h3>
+        <p>Structured decision-support architecture combining internal logic mapping with human-readable communication workflows.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <h2>How I Work</h2>
+    <ol class="how">
+      <li>Identify the real failure mode.</li>
+      <li>Reduce the problem to its smallest honest unit.</li>
+      <li>Build within clearly defined boundaries.</li>
+      <li>Test systems under ambiguity and operational pressure.</li>
+    </ol>
+    <div class="how-note">If a framework cannot hold up under uncertainty, drift, or edge-case pressure, it gets revised before deployment.</div>
+  </section>
+
+  <section id="focus">
+    <h2>Operational Focus</h2>
+    <p class="lede" style="margin-bottom: 16px;">My work is designed for:</p>
+    <div class="tag-row">
+      <span>AI governance and reasoning systems</span>
+      <span>AI onboarding and readiness workflows</span>
+      <span>Human-centered AI operations</span>
+      <span>Structured consulting workflows</span>
+      <span>Decision-support systems</span>
+      <span>AI interaction literacy and enablement</span>
+    </div>
+  </section>
+
+  <section id="positioning">
+    <h2>Professional Positioning</h2>
+    <p>This portfolio represents independent framework development focused on practical AI governance, reasoning integrity, structured communication, and operational clarity. The systems are intentionally platform-portable and designed to function independently of any single AI provider or model architecture.</p>
+  </section>
+
+  <footer class="contact" id="contact">
+    <h2>Contact</h2>
+    <div class="name">Phillip Packer</div>
+    <div class="loc">Independent AI Systems Designer · Phoenix, Arizona</div>
+    <a class="email" href="mailto:itf.framework@gmail.com">itf.framework@gmail.com</a>
+    <div class="fine">© 2026 Phillip Packer</div>
+  </footer>
+</div>
+
+</body>
+</html>
