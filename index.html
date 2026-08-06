@@ -12,239 +12,141 @@
     --border: #26292e;
     --text: #e8e6e1;
     --text-dim: #a9a49c;
-    --accent: #c9812f;
-    --accent-soft: rgba(201, 129, 47, 0.12);
+    --accent: #e0862a;
+    --accent-soft: rgba(224, 134, 42, 0.18);
+    --mono: "SF Mono", "JetBrains Mono", Consolas, "Cascadia Code", monospace;
   }
   @media (prefers-color-scheme: light) {
     :root {
-      --bg: #faf8f5;
-      --bg-alt: #ffffff;
-      --border: #e7e2da;
-      --text: #201d18;
-      --text-dim: #6b6459;
-      --accent: #a8641f;
-      --accent-soft: rgba(168, 100, 31, 0.08);
+      --bg: #faf8f5; --bg-alt: #ffffff; --border: #e7e2da;
+      --text: #201d18; --text-dim: #6b6459; --accent: #b8621a; --accent-soft: rgba(184, 98, 26, 0.12);
     }
   }
   :root[data-theme="dark"] {
     --bg: #0e0f11; --bg-alt: #16181b; --border: #26292e;
-    --text: #e8e6e1; --text-dim: #a9a49c; --accent: #c9812f; --accent-soft: rgba(201, 129, 47, 0.12);
+    --text: #e8e6e1; --text-dim: #a9a49c; --accent: #e0862a; --accent-soft: rgba(224, 134, 42, 0.18);
   }
   :root[data-theme="light"] {
     --bg: #faf8f5; --bg-alt: #ffffff; --border: #e7e2da;
-    --text: #201d18; --text-dim: #6b6459; --accent: #a8641f; --accent-soft: rgba(168, 100, 31, 0.08);
+    --text: #201d18; --text-dim: #6b6459; --accent: #b8621a; --accent-soft: rgba(184, 98, 26, 0.12);
   }
 
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
+    margin: 0; background: var(--bg); color: var(--text);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
+    line-height: 1.6; -webkit-font-smoothing: antialiased;
   }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
 
-  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-
+  /* ---------- HERO ---------- */
   header.hero {
-    padding: 96px 0 56px;
+    padding: 88px 0 60px;
     border-bottom: 1px solid var(--border);
+    position: relative;
+    background: radial-gradient(ellipse 640px 320px at 10% -10%, var(--accent-soft), transparent 70%);
+  }
+  .status-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em;
+    color: var(--text-dim); border: 1px solid var(--border); border-radius: 999px;
+    padding: 5px 12px 5px 10px; margin-bottom: 28px;
+  }
+  .status-badge .dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
   }
   header.hero .eyebrow {
-    color: var(--accent);
-    font-size: 0.8rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 600;
-    margin-bottom: 14px;
+    color: var(--accent); font-size: 0.8rem; letter-spacing: 0.14em;
+    text-transform: uppercase; font-weight: 600; margin-bottom: 10px;
+    font-family: var(--mono);
   }
   header.hero h1 {
-    font-size: clamp(2rem, 5vw, 2.9rem);
-    margin: 0 0 8px;
-    letter-spacing: -0.02em;
+    font-size: clamp(2.6rem, 7vw, 4.2rem);
+    margin: 0 0 10px; letter-spacing: -0.03em; font-weight: 700; line-height: 1.02;
   }
+  header.hero h1 .surname { color: var(--accent); }
   header.hero .role {
-    font-size: 1.1rem;
-    color: var(--text-dim);
-    margin: 0 0 20px;
+    font-size: 1.1rem; color: var(--text-dim); margin: 0 0 22px;
   }
   header.hero .tagline {
-    font-size: 1.15rem;
-    font-weight: 500;
-    max-width: 52ch;
+    font-size: 1.3rem; font-weight: 600; max-width: 46ch;
+    border-left: 3px solid var(--accent); padding-left: 16px;
   }
   nav.jump {
-    margin-top: 32px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 18px;
+    margin-top: 36px; display: flex; flex-wrap: wrap; gap: 4px 4px;
+    font-family: var(--mono); font-size: 0.78rem;
   }
   nav.jump a {
-    color: var(--text-dim);
-    text-decoration: none;
-    font-size: 0.85rem;
-    border-bottom: 1px solid transparent;
+    color: var(--text-dim); text-decoration: none;
+    padding: 6px 12px; border-radius: 6px; border: 1px solid transparent;
   }
-  nav.jump a:hover { color: var(--accent); border-color: var(--accent); }
+  nav.jump a:hover { color: var(--accent); border-color: var(--border); background: var(--bg-alt); }
 
-  section { padding: 52px 0; border-bottom: 1px solid var(--border); }
+  /* ---------- SECTION / NUMBERED HEADERS ---------- */
+  section { padding: 56px 0; border-bottom: 1px solid var(--border); }
   section:last-of-type { border-bottom: none; }
 
   h2 {
-    color: var(--accent);
-    font-size: 1.05rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-weight: 700;
-    margin: 0 0 22px;
+    display: flex; align-items: baseline; gap: 14px;
+    font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.06em;
+    font-weight: 800; margin: 0 0 24px; color: var(--text);
+  }
+  h2 .idx {
+    font-family: var(--mono); font-size: 0.85rem; font-weight: 700;
+    color: var(--accent); border: 1px solid var(--accent); border-radius: 5px;
+    padding: 2px 7px; letter-spacing: 0;
   }
 
   p { color: var(--text); max-width: 68ch; }
   .lede { color: var(--text-dim); }
 
-  ul.principles {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 10px 24px;
-  }
-  ul.principles li {
-    padding-left: 20px;
-    position: relative;
-    color: var(--text);
-  }
-  ul.principles li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.55em;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--accent);
-  }
+  ul.principles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px 24px; }
+  ul.principles li { padding-left: 20px; position: relative; color: var(--text); }
+  ul.principles li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
 
-  .kernel-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 18px;
-  }
-  .card {
-    background: var(--bg-alt);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 22px 24px;
-  }
-  .card h3 {
-    margin: 0 0 8px;
-    font-size: 1.02rem;
-  }
-  .card h3 .tag {
-    color: var(--accent);
-    font-weight: 700;
-  }
+  .kernel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px; }
+  .card h3 { margin: 0 0 8px; font-size: 1.02rem; }
+  .card h3 .tag { color: var(--accent); font-weight: 700; font-family: var(--mono); }
   .card p { margin: 0; font-size: 0.95rem; color: var(--text-dim); }
 
   .fw-list { display: flex; flex-direction: column; gap: 22px; }
   .fw-item h3 { margin: 0 0 6px; font-size: 1.05rem; }
-  .fw-item h3 .tag { color: var(--accent); font-weight: 700; }
+  .fw-item h3 .tag { color: var(--accent); font-weight: 700; font-family: var(--mono); }
   .fw-item p { margin: 0; color: var(--text-dim); font-size: 0.97rem; }
 
-  ol.how {
-    margin: 0;
-    padding-left: 22px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+  ol.how { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px; }
   ol.how li { padding-left: 4px; }
-  .how-note {
-    margin-top: 20px;
-    padding: 14px 18px;
-    background: var(--accent-soft);
-    border-left: 3px solid var(--accent);
-    border-radius: 4px;
-    font-size: 0.95rem;
-    color: var(--text-dim);
-  }
+  .how-note { margin-top: 20px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 4px; font-size: 0.95rem; color: var(--text-dim); }
 
   .tag-row { display: flex; flex-wrap: wrap; gap: 10px; }
-  .tag-row span {
-    background: var(--bg-alt);
-    border: 1px solid var(--border);
-    padding: 7px 14px;
-    border-radius: 999px;
-    font-size: 0.85rem;
-    color: var(--text-dim);
-  }
+  .tag-row span { background: var(--bg-alt); border: 1px solid var(--border); padding: 7px 14px; border-radius: 999px; font-size: 0.85rem; color: var(--text-dim); font-family: var(--mono); }
 
-  .flow {
-    margin: 24px 0 28px;
-    border-left: 2px solid var(--border);
-    padding-left: 20px;
-    display: flex; flex-direction: column; gap: 16px;
-  }
-  .flow .node {
-    position: relative;
-    font-size: 0.9rem;
-    color: var(--text);
-  }
-  .flow .node::before {
-    content: "";
-    position: absolute;
-    left: -25px;
-    top: 5px;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--accent);
-  }
-  .stat-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 14px; margin: 22px 0 28px;
-  }
-  .stat-box {
-    background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px;
-    padding: 16px 18px;
-  }
-  .stat-box .n { font-weight: 700; font-size: 1.35rem; color: var(--accent); }
-  .stat-box .l { font-size: 0.8rem; color: var(--text-dim); margin-top: 2px; }
-  .provenance-block {
-    background: var(--accent-soft); border-left: 3px solid var(--accent);
-    border-radius: 4px; padding: 16px 20px; margin: 0 0 28px; font-size: 0.95rem; color: var(--text-dim);
-  }
-  .provenance-block .label {
-    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em;
-    color: var(--accent); font-weight: 700; margin-bottom: 6px; display: block;
-  }
-  .proof-notice {
-    font-size: 0.88rem; color: var(--text-dim); border-top: 1px solid var(--border);
-    padding-top: 18px; margin-top: 6px;
-  }
+  .flow { margin: 24px 0 28px; border-left: 2px solid var(--border); padding-left: 20px; display: flex; flex-direction: column; gap: 16px; }
+  .flow .node { position: relative; font-size: 0.9rem; color: var(--text); font-family: var(--mono); }
+  .flow .node::before { content: ""; position: absolute; left: -25px; top: 5px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin: 22px 0 28px; }
+  .stat-box { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+  .stat-box .n { font-weight: 800; font-size: 1.7rem; color: var(--accent); font-family: var(--mono); }
+  .stat-box .l { font-size: 0.8rem; color: var(--text-dim); margin-top: 4px; }
+
+  .provenance-block { background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 4px; padding: 16px 20px; margin: 0 0 28px; font-size: 0.95rem; color: var(--text-dim); }
+  .provenance-block .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); font-weight: 700; margin-bottom: 6px; display: block; font-family: var(--mono); }
+
+  .proof-notice { font-size: 0.88rem; color: var(--text-dim); border-top: 1px solid var(--border); padding-top: 18px; margin-top: 6px; }
   .proof-notice strong { color: var(--text); }
 
-  footer.contact {
-    padding: 56px 0 80px;
-  }
-  footer.contact h2 { margin-bottom: 16px; }
+  footer.contact { padding: 56px 0 80px; }
   footer.contact .name { font-weight: 700; font-size: 1.1rem; margin-bottom: 4px; }
   footer.contact .loc { color: var(--text-dim); margin-bottom: 14px; }
-  footer.contact a.email {
-    display: inline-block;
-    color: var(--accent);
-    text-decoration: none;
-    font-weight: 600;
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 2px;
-  }
-  footer.contact .fine {
-    margin-top: 40px;
-    color: var(--text-dim);
-    font-size: 0.8rem;
+  footer.contact a.email { display: inline-block; color: var(--accent); text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--accent); padding-bottom: 2px; font-family: var(--mono); }
+  footer.contact .fine { margin-top: 40px; color: var(--text-dim); font-size: 0.8rem; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .stat-box .n.counting { transition: none; }
   }
 </style>
 </head>
@@ -252,30 +154,31 @@
 
 <div class="wrap">
   <header class="hero">
+    <div class="status-badge"><span class="dot"></span>RUNTIME v0.3.0 · GOVERNANCE KERNEL LIVE</div>
     <div class="eyebrow">Independent AI Systems Designer</div>
-    <h1>Phillip Packer</h1>
+    <h1>Phillip <span class="surname">Packer</span></h1>
     <p class="role">Reasoning governance · Interaction literacy · Structured decision systems</p>
     <p class="tagline">Making AI work the way it should.</p>
     <nav class="jump">
       <a href="#about">About</a>
-      <a href="#principles">Core Principles</a>
-      <a href="#kernel">Governance Kernel</a>
+      <a href="#principles">Principles</a>
+      <a href="#kernel">Kernel</a>
       <a href="#proof">Proof of Work</a>
-      <a href="#frameworks">Frameworks &amp; Systems</a>
+      <a href="#frameworks">Frameworks</a>
       <a href="#how">How I Work</a>
-      <a href="#focus">Operational Focus</a>
+      <a href="#focus">Focus</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <section id="about">
-    <h2>About</h2>
+    <h2><span class="idx">01</span>About</h2>
     <p>I build frameworks that bring clarity, accountability, and practical structure to how people and organizations use AI systems. My work focuses on reasoning governance, interaction literacy, cognitive assessment, and structured decision systems that function across models and platforms.</p>
     <p class="lede">I came to AI systems work through decades of operational experience, territory management, and process accountability. That background shaped how I approach AI: identify where systems fail, reduce ambiguity, isolate assumptions, and build structures that hold up under pressure. My frameworks are designed to be usable by real people in real environments — not only technical specialists.</p>
   </section>
 
   <section id="principles">
-    <h2>Core Principles</h2>
+    <h2><span class="idx">02</span>Core Principles</h2>
     <ul class="principles">
       <li>Truth before tone</li>
       <li>Clear boundaries and scope enforcement</li>
@@ -287,7 +190,7 @@
   </section>
 
   <section id="kernel">
-    <h2>Governance Kernel</h2>
+    <h2><span class="idx">03</span>Governance Kernel</h2>
     <p class="lede" style="margin-bottom: 20px;">Every framework in this portfolio is built on two interlocking governance systems.</p>
     <div class="kernel-grid">
       <div class="card">
@@ -302,7 +205,7 @@
   </section>
 
   <section id="proof">
-    <h2>Proof of Work</h2>
+    <h2><span class="idx">04</span>Proof of Work</h2>
     <p class="lede" style="margin-bottom: 20px;">The governance kernel behind ITF and AXIS is implemented, tested, and versioned — not just named. Below is verifiable detail on how it's built and validated, without exposing the runtime source, rule registry, or canon specification itself.</p>
 
     <div class="flow">
@@ -316,12 +219,12 @@
     </div>
 
     <div class="stat-grid">
-      <div class="stat-box"><div class="n">12</div><div class="l">ratified engineering formalizations (EF1–EF12)</div></div>
-      <div class="stat-box"><div class="n">275</div><div class="l">passing conformance &amp; integration tests</div></div>
-      <div class="stat-box"><div class="n">103</div><div class="l">registered, stable rule identities</div></div>
-      <div class="stat-box"><div class="n">36</div><div class="l">tri-state semantic predicates</div></div>
-      <div class="stat-box"><div class="n">52</div><div class="l">registered evaluator modules</div></div>
-      <div class="stat-box"><div class="n">16+</div><div class="l">canon-derived fixture scenarios</div></div>
+      <div class="stat-box"><div class="n" data-count="12">0</div><div class="l">ratified engineering formalizations (EF1–EF12)</div></div>
+      <div class="stat-box"><div class="n" data-count="275">0</div><div class="l">passing conformance &amp; integration tests</div></div>
+      <div class="stat-box"><div class="n" data-count="103">0</div><div class="l">registered, stable rule identities</div></div>
+      <div class="stat-box"><div class="n" data-count="36">0</div><div class="l">tri-state semantic predicates</div></div>
+      <div class="stat-box"><div class="n" data-count="52">0</div><div class="l">registered evaluator modules</div></div>
+      <div class="stat-box"><div class="n" data-count="16">0</div><div class="l">canon-derived fixture scenarios</div></div>
       <div class="stat-box"><div class="n">100%</div><div class="l">hash-chain integrity verified on trace, status &amp; security ledgers</div></div>
     </div>
 
@@ -341,7 +244,7 @@
   </section>
 
   <section id="frameworks">
-    <h2>Frameworks &amp; Systems</h2>
+    <h2><span class="idx">05</span>Frameworks &amp; Systems</h2>
     <div class="fw-list">
       <div class="fw-item">
         <h3><span class="tag">CAAS</span> — Cognitive Architecture Assessment System</h3>
@@ -363,7 +266,7 @@
   </section>
 
   <section id="how">
-    <h2>How I Work</h2>
+    <h2><span class="idx">06</span>How I Work</h2>
     <ol class="how">
       <li>Identify the real failure mode.</li>
       <li>Reduce the problem to its smallest honest unit.</li>
@@ -374,7 +277,7 @@
   </section>
 
   <section id="focus">
-    <h2>Operational Focus</h2>
+    <h2><span class="idx">07</span>Operational Focus</h2>
     <p class="lede" style="margin-bottom: 16px;">My work is designed for:</p>
     <div class="tag-row">
       <span>AI governance and reasoning systems</span>
@@ -387,18 +290,50 @@
   </section>
 
   <section id="positioning">
-    <h2>Professional Positioning</h2>
+    <h2><span class="idx">08</span>Professional Positioning</h2>
     <p>This portfolio represents independent framework development focused on practical AI governance, reasoning integrity, structured communication, and operational clarity. The systems are intentionally platform-portable and designed to function independently of any single AI provider or model architecture.</p>
   </section>
 
   <footer class="contact" id="contact">
-    <h2>Contact</h2>
+    <h2><span class="idx">09</span>Contact</h2>
     <div class="name">Phillip Packer</div>
     <div class="loc">Independent AI Systems Designer · Phoenix, Arizona</div>
     <a class="email" href="mailto:itf.framework@gmail.com">itf.framework@gmail.com</a>
     <div class="fine">© 2026 Phillip Packer</div>
   </footer>
 </div>
+
+<script>
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var counted = new WeakSet();
+  function animateCount(el) {
+    if (counted.has(el)) return;
+    counted.add(el);
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    if (prefersReduced) { el.textContent = target; return; }
+    var start = null;
+    var duration = 900;
+    function step(ts) {
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var targets = document.querySelectorAll('.stat-box .n[data-count]');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) animateCount(entry.target);
+      });
+    }, { threshold: 0.4 });
+    targets.forEach(function(t) { io.observe(t); });
+  } else {
+    targets.forEach(function(t) { t.textContent = t.getAttribute('data-count'); });
+  }
+</script>
 
 </body>
 </html>
