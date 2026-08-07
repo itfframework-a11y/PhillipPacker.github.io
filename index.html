@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Phillip Packer — Independent AI Systems Designer</title>
 <meta name="description" content="Phillip Packer builds frameworks for AI reasoning governance, interaction literacy, cognitive assessment, and structured decision systems.">
+<meta property="og:title" content="Phillip Packer — Independent AI Systems Designer">
+<meta property="og:description" content="Frameworks for AI reasoning governance, interaction literacy, and structured decision systems.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://itfframework-a11y.github.io/PhillipPacker.github.io/">
 <style>
   :root {
     --bg: #0e0f11;
@@ -22,15 +26,6 @@
       --text: #201d18; --text-dim: #6b6459; --accent: #b8621a; --accent-soft: rgba(184, 98, 26, 0.12);
     }
   }
-  :root[data-theme="dark"] {
-    --bg: #0e0f11; --bg-alt: #16181b; --border: #26292e;
-    --text: #e8e6e1; --text-dim: #a9a49c; --accent: #e0862a; --accent-soft: rgba(224, 134, 42, 0.18);
-  }
-  :root[data-theme="light"] {
-    --bg: #faf8f5; --bg-alt: #ffffff; --border: #e7e2da;
-    --text: #201d18; --text-dim: #6b6459; --accent: #b8621a; --accent-soft: rgba(184, 98, 26, 0.12);
-  }
-
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
@@ -144,10 +139,6 @@
   footer.contact .loc { color: var(--text-dim); margin-bottom: 14px; }
   footer.contact a.email { display: inline-block; color: var(--accent); text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--accent); padding-bottom: 2px; font-family: var(--mono); }
   footer.contact .fine { margin-top: 40px; color: var(--text-dim); font-size: 0.8rem; }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .stat-box .n.counting { transition: none; }
-  }
 </style>
 </head>
 <body>
@@ -219,12 +210,12 @@
     </div>
 
     <div class="stat-grid">
-      <div class="stat-box"><div class="n" data-count="12">0</div><div class="l">ratified engineering formalizations (EF1–EF12)</div></div>
-      <div class="stat-box"><div class="n" data-count="275">0</div><div class="l">passing conformance &amp; integration tests</div></div>
-      <div class="stat-box"><div class="n" data-count="103">0</div><div class="l">registered, stable rule identities</div></div>
-      <div class="stat-box"><div class="n" data-count="36">0</div><div class="l">tri-state semantic predicates</div></div>
-      <div class="stat-box"><div class="n" data-count="52">0</div><div class="l">registered evaluator modules</div></div>
-      <div class="stat-box"><div class="n" data-count="16">0</div><div class="l">canon-derived fixture scenarios</div></div>
+      <div class="stat-box"><div class="n" data-count="12">12</div><div class="l">ratified engineering formalizations (EF1–EF12)</div></div>
+      <div class="stat-box"><div class="n" data-count="275">275</div><div class="l">passing conformance &amp; integration tests</div></div>
+      <div class="stat-box"><div class="n" data-count="103">103</div><div class="l">registered, stable rule identities</div></div>
+      <div class="stat-box"><div class="n" data-count="36">36</div><div class="l">tri-state semantic predicates</div></div>
+      <div class="stat-box"><div class="n" data-count="52">52</div><div class="l">registered evaluator modules</div></div>
+      <div class="stat-box"><div class="n" data-count="16">16</div><div class="l">canon-derived fixture scenarios</div></div>
       <div class="stat-box"><div class="n">100%</div><div class="l">hash-chain integrity verified on trace, status &amp; security ledgers</div></div>
     </div>
 
@@ -310,7 +301,7 @@
     if (counted.has(el)) return;
     counted.add(el);
     var target = parseInt(el.getAttribute('data-count'), 10);
-    if (prefersReduced) { el.textContent = target; return; }
+    el.textContent = '0';
     var start = null;
     var duration = 900;
     function step(ts) {
@@ -322,16 +313,17 @@
     }
     requestAnimationFrame(step);
   }
+  // The markup already carries the real numbers; each one is reset to 0 only at
+  // the instant it starts animating. No-JS, reduced-motion, crawlers, a never-
+  // scrolled-to stat, or a hidden tab all keep the true value on screen.
   var targets = document.querySelectorAll('.stat-box .n[data-count]');
-  if ('IntersectionObserver' in window) {
+  if ('IntersectionObserver' in window && !prefersReduced) {
     var io = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) animateCount(entry.target);
       });
     }, { threshold: 0.4 });
     targets.forEach(function(t) { io.observe(t); });
-  } else {
-    targets.forEach(function(t) { t.textContent = t.getAttribute('data-count'); });
   }
 </script>
 
