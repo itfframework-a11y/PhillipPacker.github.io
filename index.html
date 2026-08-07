@@ -11,143 +11,206 @@
 <meta property="og:url" content="https://itfframework-a11y.github.io/PhillipPacker.github.io/">
 <style>
   :root {
-    --bg: #0e0f11;
-    --bg-alt: #16181b;
-    --border: #26292e;
-    --text: #e8e6e1;
-    --text-dim: #a9a49c;
-    --accent: #e0862a;
-    --accent-soft: rgba(224, 134, 42, 0.18);
-    --mono: "SF Mono", "JetBrains Mono", Consolas, "Cascadia Code", monospace;
+    --bg: #fbfaf7;
+    --bg-alt: #f5f2ec;
+    --rule: #ddd6cc;
+    --rule-soft: #e9e3d9;
+    --text: #191817;
+    --text-dim: #6a635c;
+    --accent: #7c1f2e;
+    --accent-soft: rgba(124, 31, 46, 0.06);
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   }
-  @media (prefers-color-scheme: light) {
+  @media (prefers-color-scheme: dark) {
     :root {
-      --bg: #faf8f5; --bg-alt: #ffffff; --border: #e7e2da;
-      --text: #201d18; --text-dim: #6b6459; --accent: #b8621a; --accent-soft: rgba(184, 98, 26, 0.12);
+      --bg: #131211;
+      --bg-alt: #1a1917;
+      --rule: #302c27;
+      --rule-soft: #262320;
+      --text: #ece8e1;
+      --text-dim: #9c948a;
+      --accent: #c2726f;
+      --accent-soft: rgba(194, 114, 111, 0.10);
     }
   }
+
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    margin: 0; background: var(--bg); color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
-    line-height: 1.6; -webkit-font-smoothing: antialiased;
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 26px; }
 
-  /* ---------- HERO ---------- */
-  header.hero {
-    padding: 88px 0 60px;
-    border-bottom: 1px solid var(--border);
-    position: relative;
-    background: radial-gradient(ellipse 640px 320px at 10% -10%, var(--accent-soft), transparent 70%);
+  /* ---------- MASTHEAD ---------- */
+  header.hero { padding: 76px 0 52px; }
+  .dateline {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--text-dim); padding-bottom: 12px; margin-bottom: 30px;
+    border-bottom: 1px solid var(--rule);
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
   }
-  .status-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em;
-    color: var(--text-dim); border: 1px solid var(--border); border-radius: 999px;
-    padding: 5px 12px 5px 10px; margin-bottom: 28px;
-  }
-  .status-badge .dot {
-    width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-soft);
-  }
-  header.hero .eyebrow {
-    color: var(--accent); font-size: 0.8rem; letter-spacing: 0.14em;
-    text-transform: uppercase; font-weight: 600; margin-bottom: 10px;
-    font-family: var(--mono);
+  .kicker {
+    font-family: var(--serif); font-style: italic; color: var(--accent);
+    font-size: 1.05rem; margin-bottom: 12px;
   }
   header.hero h1 {
-    font-size: clamp(2.6rem, 7vw, 4.2rem);
-    margin: 0 0 10px; letter-spacing: -0.03em; font-weight: 700; line-height: 1.02;
+    font-family: var(--serif);
+    font-size: clamp(2.7rem, 8vw, 3.9rem);
+    font-weight: 600; letter-spacing: -0.015em; line-height: 1.04; margin: 0 0 14px;
   }
-  header.hero h1 .surname { color: var(--accent); }
-  header.hero .role {
-    font-size: 1.1rem; color: var(--text-dim); margin: 0 0 22px;
-  }
+  header.hero .role { color: var(--text-dim); margin: 0 0 24px; font-size: 1rem; }
   header.hero .tagline {
-    font-size: 1.3rem; font-weight: 600; max-width: 46ch;
-    border-left: 3px solid var(--accent); padding-left: 16px;
+    font-family: var(--serif); font-size: clamp(1.35rem, 3.6vw, 1.6rem);
+    line-height: 1.35; font-weight: 400; margin: 0; max-width: 26ch;
+    padding-top: 24px; border-top: 1px solid var(--rule);
   }
   nav.jump {
-    margin-top: 36px; display: flex; flex-wrap: wrap; gap: 4px 4px;
-    font-family: var(--mono); font-size: 0.78rem;
+    margin-top: 40px; display: flex; flex-wrap: wrap; gap: 6px 22px;
+    font-size: 0.82rem;
   }
   nav.jump a {
     color: var(--text-dim); text-decoration: none;
-    padding: 6px 12px; border-radius: 6px; border: 1px solid transparent;
+    border-bottom: 1px solid transparent; padding-bottom: 1px;
   }
-  nav.jump a:hover { color: var(--accent); border-color: var(--border); background: var(--bg-alt); }
+  nav.jump a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
-  /* ---------- SECTION / NUMBERED HEADERS ---------- */
-  section { padding: 56px 0; border-bottom: 1px solid var(--border); }
-  section:last-of-type { border-bottom: none; }
+  /* ---------- SECTIONS ---------- */
+  section { padding: 52px 0; border-top: 1px solid var(--rule); }
 
   h2 {
-    display: flex; align-items: baseline; gap: 14px;
-    font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.06em;
-    font-weight: 800; margin: 0 0 24px; color: var(--text);
+    font-family: var(--serif); font-size: 1.6rem; font-weight: 600;
+    margin: 0 0 22px; display: flex; align-items: baseline; gap: 13px;
+    letter-spacing: -0.01em;
   }
-  h2 .idx {
-    font-family: var(--mono); font-size: 0.85rem; font-weight: 700;
-    color: var(--accent); border: 1px solid var(--accent); border-radius: 5px;
-    padding: 2px 7px; letter-spacing: 0;
+  h2 .num {
+    font-size: 0.8rem; color: var(--accent); font-weight: 600;
+    font-variant-numeric: tabular-nums; letter-spacing: 0.02em;
   }
 
-  p { color: var(--text); max-width: 68ch; }
+  p { max-width: 66ch; margin: 0 0 16px; }
+  p:last-child { margin-bottom: 0; }
   .lede { color: var(--text-dim); }
 
-  ul.principles { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px 24px; }
-  ul.principles li { padding-left: 20px; position: relative; color: var(--text); }
-  ul.principles li::before { content: ""; position: absolute; left: 0; top: 0.55em; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+  /* principles */
+  ul.principles {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0 32px;
+  }
+  ul.principles li {
+    padding: 11px 0; border-bottom: 1px solid var(--rule-soft);
+  }
 
-  .kernel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
-  .card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px; padding: 22px 24px; }
-  .card h3 { margin: 0 0 8px; font-size: 1.02rem; }
-  .card h3 .tag { color: var(--accent); font-weight: 700; font-family: var(--mono); }
-  .card p { margin: 0; font-size: 0.95rem; color: var(--text-dim); }
+  /* kernel — two ruled columns, no boxes */
+  .kernel-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 0 34px;
+  }
+  .kernel-grid .item { padding: 18px 0; border-top: 2px solid var(--accent); }
+  .kernel-grid .item + .item { }
+  .kernel-grid h3 { font-family: var(--serif); margin: 0 0 7px; font-size: 1.12rem; font-weight: 600; }
+  .kernel-grid h3 .code { color: var(--accent); }
+  .kernel-grid p { margin: 0; font-size: 0.94rem; color: var(--text-dim); }
 
-  .fw-list { display: flex; flex-direction: column; gap: 22px; }
-  .fw-item h3 { margin: 0 0 6px; font-size: 1.05rem; }
-  .fw-item h3 .tag { color: var(--accent); font-weight: 700; font-family: var(--mono); }
-  .fw-item p { margin: 0; color: var(--text-dim); font-size: 0.97rem; }
+  /* frameworks */
+  .fw-list { display: flex; flex-direction: column; }
+  .fw-item { padding: 20px 0; border-bottom: 1px solid var(--rule-soft); }
+  .fw-item:first-child { border-top: 1px solid var(--rule-soft); }
+  .fw-item h3 { font-family: var(--serif); margin: 0 0 5px; font-size: 1.12rem; font-weight: 600; }
+  .fw-item h3 .code { color: var(--accent); }
+  .fw-item p { margin: 0; color: var(--text-dim); font-size: 0.94rem; }
 
-  ol.how { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px; }
-  ol.how li { padding-left: 4px; }
-  .how-note { margin-top: 20px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 4px; font-size: 0.95rem; color: var(--text-dim); }
+  /* how i work */
+  ol.how { margin: 0; padding: 0; list-style: none; counter-reset: step; }
+  ol.how li {
+    counter-increment: step; position: relative; padding: 12px 0 12px 34px;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  ol.how li::before {
+    content: counter(step) "."; position: absolute; left: 0; top: 12px;
+    font-family: var(--serif); color: var(--accent); font-weight: 600;
+  }
+  .how-note {
+    margin-top: 22px; font-family: var(--serif); font-size: 1.1rem;
+    font-style: italic; color: var(--text-dim); max-width: 54ch; line-height: 1.5;
+  }
 
-  .tag-row { display: flex; flex-wrap: wrap; gap: 10px; }
-  .tag-row span { background: var(--bg-alt); border: 1px solid var(--border); padding: 7px 14px; border-radius: 999px; font-size: 0.85rem; color: var(--text-dim); font-family: var(--mono); }
+  /* operational focus */
+  ul.focus-list {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0 32px;
+  }
+  ul.focus-list li { padding: 11px 0; border-bottom: 1px solid var(--rule-soft); font-size: 0.96rem; }
 
-  .flow { margin: 24px 0 28px; border-left: 2px solid var(--border); padding-left: 20px; display: flex; flex-direction: column; gap: 16px; }
-  .flow .node { position: relative; font-size: 0.9rem; color: var(--text); font-family: var(--mono); }
-  .flow .node::before { content: ""; position: absolute; left: -25px; top: 5px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+  /* proof of work */
+  ol.flow { margin: 0 0 34px; padding: 0; list-style: none; counter-reset: stage; }
+  ol.flow li {
+    counter-increment: stage; position: relative;
+    padding: 10px 0 10px 38px; border-bottom: 1px solid var(--rule-soft);
+    font-size: 0.94rem;
+  }
+  ol.flow li:first-child { border-top: 1px solid var(--rule-soft); }
+  ol.flow li::before {
+    content: counter(stage, decimal-leading-zero); position: absolute; left: 0; top: 10px;
+    font-size: 0.75rem; color: var(--accent); font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em; padding-top: 3px;
+  }
 
-  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin: 22px 0 28px; }
-  .stat-box { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
-  .stat-box .n { font-weight: 800; font-size: 1.7rem; color: var(--accent); font-family: var(--mono); }
-  .stat-box .l { font-size: 0.8rem; color: var(--text-dim); margin-top: 4px; }
+  .stat-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(146px, 1fr));
+    gap: 0 30px; border-top: 1px solid var(--rule); margin-bottom: 34px;
+  }
+  .stat-box { padding: 16px 0 15px; border-bottom: 1px solid var(--rule-soft); }
+  .stat-box .n {
+    font-family: var(--serif); font-size: 2.1rem; font-weight: 600; line-height: 1.05;
+    font-variant-numeric: tabular-nums; color: var(--text);
+  }
+  .stat-box .l { font-size: 0.76rem; color: var(--text-dim); margin-top: 3px; line-height: 1.45; }
 
-  .provenance-block { background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 4px; padding: 16px 20px; margin: 0 0 28px; font-size: 0.95rem; color: var(--text-dim); }
-  .provenance-block .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); font-weight: 700; margin-bottom: 6px; display: block; font-family: var(--mono); }
+  .note-block { margin-bottom: 26px; padding-left: 20px; border-left: 2px solid var(--accent); }
+  .note-block .label {
+    display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--accent); font-weight: 700; margin-bottom: 7px;
+  }
+  .note-block p { margin: 0; font-size: 0.94rem; color: var(--text-dim); }
 
-  .proof-notice { font-size: 0.88rem; color: var(--text-dim); border-top: 1px solid var(--border); padding-top: 18px; margin-top: 6px; }
-  .proof-notice strong { color: var(--text); }
+  .proof-notice {
+    font-size: 0.88rem; color: var(--text-dim);
+    border-top: 1px solid var(--rule); padding-top: 20px;
+  }
+  .proof-notice strong { color: var(--text); font-weight: 600; }
 
-  footer.contact { padding: 56px 0 80px; }
-  footer.contact .name { font-weight: 700; font-size: 1.1rem; margin-bottom: 4px; }
-  footer.contact .loc { color: var(--text-dim); margin-bottom: 14px; }
-  footer.contact a.email { display: inline-block; color: var(--accent); text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--accent); padding-bottom: 2px; font-family: var(--mono); }
-  footer.contact .fine { margin-top: 40px; color: var(--text-dim); font-size: 0.8rem; }
+  /* contact */
+  footer.contact { padding: 52px 0 88px; border-top: 1px solid var(--rule); }
+  footer.contact .name { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; margin-bottom: 3px; }
+  footer.contact .loc { color: var(--text-dim); margin-bottom: 16px; font-size: 0.95rem; }
+  footer.contact a.email {
+    font-family: var(--serif); font-size: 1.15rem; color: var(--accent);
+    text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px;
+  }
+  footer.contact .fine {
+    margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--rule-soft);
+    color: var(--text-dim); font-size: 0.75rem;
+    text-transform: uppercase; letter-spacing: 0.1em;
+  }
 </style>
 </head>
 <body>
 
 <div class="wrap">
   <header class="hero">
-    <div class="status-badge"><span class="dot"></span>RUNTIME v0.3.0 · GOVERNANCE KERNEL LIVE</div>
-    <div class="eyebrow">Independent AI Systems Designer</div>
-    <h1>Phillip <span class="surname">Packer</span></h1>
+    <div class="dateline">
+      <span>Phoenix, Arizona</span>
+      <span>Runtime v0.3.0 · Governance kernel live</span>
+    </div>
+    <div class="kicker">Independent AI Systems Designer</div>
+    <h1>Phillip Packer</h1>
     <p class="role">Reasoning governance · Interaction literacy · Structured decision systems</p>
     <p class="tagline">Making AI work the way it should.</p>
     <nav class="jump">
@@ -163,13 +226,13 @@
   </header>
 
   <section id="about">
-    <h2><span class="idx">01</span>About</h2>
+    <h2><span class="num">I.</span>About</h2>
     <p>I build frameworks that bring clarity, accountability, and practical structure to how people and organizations use AI systems. My work focuses on reasoning governance, interaction literacy, cognitive assessment, and structured decision systems that function across models and platforms.</p>
     <p class="lede">I came to AI systems work through decades of operational experience, territory management, and process accountability. That background shaped how I approach AI: identify where systems fail, reduce ambiguity, isolate assumptions, and build structures that hold up under pressure. My frameworks are designed to be usable by real people in real environments — not only technical specialists.</p>
   </section>
 
   <section id="principles">
-    <h2><span class="idx">02</span>Core Principles</h2>
+    <h2><span class="num">II.</span>Core Principles</h2>
     <ul class="principles">
       <li>Truth before tone</li>
       <li>Clear boundaries and scope enforcement</li>
@@ -181,33 +244,33 @@
   </section>
 
   <section id="kernel">
-    <h2><span class="idx">03</span>Governance Kernel</h2>
-    <p class="lede" style="margin-bottom: 20px;">Every framework in this portfolio is built on two interlocking governance systems.</p>
+    <h2><span class="num">III.</span>Governance Kernel</h2>
+    <p class="lede" style="margin-bottom: 26px;">Every framework in this portfolio is built on two interlocking governance systems.</p>
     <div class="kernel-grid">
-      <div class="card">
-        <h3><span class="tag">ITF</span> — Integrated Truth Framework</h3>
+      <div class="item">
+        <h3><span class="code">ITF</span> — Integrated Truth Framework</h3>
         <p>A reasoning-governance system enforcing Verify → Align → Apply → Communicate sequencing to reduce drift, unstable assumptions, and hallucinated reasoning.</p>
       </div>
-      <div class="card">
-        <h3><span class="tag">AXIS</span> — Adaptive Expression Intelligence System</h3>
+      <div class="item">
+        <h3><span class="code">AXIS</span> — Adaptive Expression Intelligence System</h3>
         <p>A delivery-governance layer that adapts communication style and structure while preserving factual integrity and logical consistency.</p>
       </div>
     </div>
   </section>
 
   <section id="proof">
-    <h2><span class="idx">04</span>Proof of Work</h2>
-    <p class="lede" style="margin-bottom: 20px;">The governance kernel behind ITF and AXIS is implemented, tested, and versioned — not just named. Below is verifiable detail on how it's built and validated, without exposing the runtime source, rule registry, or canon specification itself.</p>
+    <h2><span class="num">IV.</span>Proof of Work</h2>
+    <p class="lede" style="margin-bottom: 28px;">The governance kernel behind ITF and AXIS is implemented, tested, and versioned — not just named. Below is verifiable detail on how it's built and validated, without exposing the runtime source, rule registry, or canon specification itself.</p>
 
-    <div class="flow">
-      <div class="node">Delivery + evaluation attempt</div>
-      <div class="node">Evaluator registry</div>
-      <div class="node">Canonical signals + typed conflicts</div>
-      <div class="node">Contract gate + deterministic kernel</div>
-      <div class="node">Decision-bound execution boundary</div>
-      <div class="node">Atomic trace + state commit</div>
-      <div class="node">Security ledger + checkpoints</div>
-    </div>
+    <ol class="flow">
+      <li>Delivery + evaluation attempt</li>
+      <li>Evaluator registry</li>
+      <li>Canonical signals + typed conflicts</li>
+      <li>Contract gate + deterministic kernel</li>
+      <li>Decision-bound execution boundary</li>
+      <li>Atomic trace + state commit</li>
+      <li>Security ledger + checkpoints</li>
+    </ol>
 
     <div class="stat-grid">
       <div class="stat-box"><div class="n" data-count="12">12</div><div class="l">ratified engineering formalizations (EF1–EF12)</div></div>
@@ -219,14 +282,14 @@
       <div class="stat-box"><div class="n">100%</div><div class="l">hash-chain integrity verified on trace, status &amp; security ledgers</div></div>
     </div>
 
-    <div class="provenance-block">
+    <div class="note-block">
       <span class="label">Full Canon Coverage</span>
-      Every load-bearing capability in the governance canon now has an executable, tested implementation: evidence triangulation, representation-neutrality adjudication, deployment-profile intervention policy, drift and governance-health detection, and the AXIS presentation layer. No canon area remains specification-only.
+      <p>Every load-bearing capability in the governance canon now has an executable, tested implementation: evidence triangulation, representation-neutrality adjudication, deployment-profile intervention policy, drift and governance-health detection, and the AXIS presentation layer. No canon area remains specification-only.</p>
     </div>
 
-    <div class="provenance-block">
+    <div class="note-block">
       <span class="label">Authorship &amp; Process</span>
-      Runtime scope and required capabilities are creator-directed; code, schemas, API design, and tests are model-formalized against that direction. This division is recorded explicitly for every build — a documented separation between what was specified and what was implemented, re-verified at each versioned candidate.
+      <p>Runtime scope and required capabilities are creator-directed; code, schemas, API design, and tests are model-formalized against that direction. This division is recorded explicitly for every build — a documented separation between what was specified and what was implemented, re-verified at each versioned candidate.</p>
     </div>
 
     <div class="proof-notice">
@@ -235,29 +298,29 @@
   </section>
 
   <section id="frameworks">
-    <h2><span class="idx">05</span>Frameworks &amp; Systems</h2>
+    <h2><span class="num">V.</span>Frameworks &amp; Systems</h2>
     <div class="fw-list">
       <div class="fw-item">
-        <h3><span class="tag">CAAS</span> — Cognitive Architecture Assessment System</h3>
+        <h3><span class="code">CAAS</span> — Cognitive Architecture Assessment System</h3>
         <p>Conversational framework for identifying reasoning patterns, learning tendencies, and meaning-making structures without clinical scoring or labels.</p>
       </div>
       <div class="fw-item">
-        <h3><span class="tag">AURA</span> — AI Usage Readiness Assessment</h3>
+        <h3><span class="code">AURA</span> — AI Usage Readiness Assessment</h3>
         <p>Assessment framework helping individuals and organizations understand AI adoption readiness, trust calibration, and operational interaction patterns.</p>
       </div>
       <div class="fw-item">
-        <h3><span class="tag">AURA-IL</span> — Interaction &amp; Prompting Literacy</h3>
+        <h3><span class="code">AURA-IL</span> — Interaction &amp; Prompting Literacy</h3>
         <p>Educational module focused on abstraction control, prompting clarity, interaction mechanics, and AI communication literacy.</p>
       </div>
       <div class="fw-item">
-        <h3><span class="tag">DIS + CLEAR</span> — Decision Information System &amp; Clarity Interface</h3>
+        <h3><span class="code">DIS + CLEAR</span> — Decision Information System &amp; Clarity Interface</h3>
         <p>Structured decision-support architecture combining internal logic mapping with human-readable communication workflows.</p>
       </div>
     </div>
   </section>
 
   <section id="how">
-    <h2><span class="idx">06</span>How I Work</h2>
+    <h2><span class="num">VI.</span>How I Work</h2>
     <ol class="how">
       <li>Identify the real failure mode.</li>
       <li>Reduce the problem to its smallest honest unit.</li>
@@ -268,25 +331,25 @@
   </section>
 
   <section id="focus">
-    <h2><span class="idx">07</span>Operational Focus</h2>
-    <p class="lede" style="margin-bottom: 16px;">My work is designed for:</p>
-    <div class="tag-row">
-      <span>AI governance and reasoning systems</span>
-      <span>AI onboarding and readiness workflows</span>
-      <span>Human-centered AI operations</span>
-      <span>Structured consulting workflows</span>
-      <span>Decision-support systems</span>
-      <span>AI interaction literacy and enablement</span>
-    </div>
+    <h2><span class="num">VII.</span>Operational Focus</h2>
+    <p class="lede" style="margin-bottom: 20px;">My work is designed for:</p>
+    <ul class="focus-list">
+      <li>AI governance and reasoning systems</li>
+      <li>AI onboarding and readiness workflows</li>
+      <li>Human-centered AI operations</li>
+      <li>Structured consulting workflows</li>
+      <li>Decision-support systems</li>
+      <li>AI interaction literacy and enablement</li>
+    </ul>
   </section>
 
   <section id="positioning">
-    <h2><span class="idx">08</span>Professional Positioning</h2>
+    <h2><span class="num">VIII.</span>Professional Positioning</h2>
     <p>This portfolio represents independent framework development focused on practical AI governance, reasoning integrity, structured communication, and operational clarity. The systems are intentionally platform-portable and designed to function independently of any single AI provider or model architecture.</p>
   </section>
 
   <footer class="contact" id="contact">
-    <h2><span class="idx">09</span>Contact</h2>
+    <h2><span class="num">IX.</span>Contact</h2>
     <div class="name">Phillip Packer</div>
     <div class="loc">Independent AI Systems Designer · Phoenix, Arizona</div>
     <a class="email" href="mailto:itf.framework@gmail.com">itf.framework@gmail.com</a>
