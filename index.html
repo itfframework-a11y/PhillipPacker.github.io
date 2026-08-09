@@ -180,6 +180,33 @@
   }
   .note-block p { margin: 0; font-size: 0.94rem; color: var(--text-dim); }
 
+  /* worked example */
+  blockquote.specimen {
+    margin: 0; padding: 22px 0 14px; border-top: 1px solid var(--rule);
+    font-family: var(--serif); font-size: clamp(1.2rem, 3.2vw, 1.45rem);
+    line-height: 1.4; max-width: 30ch;
+  }
+  .specimen-note {
+    font-family: var(--serif); font-style: italic; color: var(--accent);
+    margin: 0 0 26px; font-size: 1rem;
+  }
+  ol.trace { margin: 0 0 24px; padding: 0; list-style: none; }
+  ol.trace li {
+    display: grid; grid-template-columns: 132px 1fr; gap: 18px;
+    padding: 12px 0; border-bottom: 1px solid var(--rule-soft);
+    align-items: baseline;
+  }
+  ol.trace li:first-child { border-top: 1px solid var(--rule-soft); }
+  ol.trace .stage {
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.13em;
+    color: var(--accent); font-weight: 700;
+  }
+  ol.trace .verdict { font-size: 0.95rem; color: var(--text-dim); }
+  ol.trace .verdict strong { color: var(--text); font-weight: 600; }
+  @media (max-width: 520px) {
+    ol.trace li { grid-template-columns: 1fr; gap: 4px; }
+  }
+
   .proof-notice {
     font-size: 0.88rem; color: var(--text-dim);
     border-top: 1px solid var(--rule); padding-top: 20px;
@@ -218,6 +245,7 @@
       <a href="#principles">Principles</a>
       <a href="#kernel">Kernel</a>
       <a href="#proof">Proof of Work</a>
+      <a href="#example">Worked Example</a>
       <a href="#frameworks">Frameworks</a>
       <a href="#how">How I Work</a>
       <a href="#focus">Focus</a>
@@ -274,7 +302,7 @@
 
     <div class="stat-grid">
       <div class="stat-box"><div class="n" data-count="12">12</div><div class="l">ratified engineering formalizations (EF1–EF12)</div></div>
-      <div class="stat-box"><div class="n" data-count="275">275</div><div class="l">passing conformance &amp; integration tests</div></div>
+      <div class="stat-box"><div class="n" data-count="283">283</div><div class="l">passing conformance &amp; integration tests</div></div>
       <div class="stat-box"><div class="n" data-count="103">103</div><div class="l">registered, stable rule identities</div></div>
       <div class="stat-box"><div class="n" data-count="36">36</div><div class="l">tri-state semantic predicates</div></div>
       <div class="stat-box"><div class="n" data-count="52">52</div><div class="l">registered evaluator modules</div></div>
@@ -288,17 +316,46 @@
     </div>
 
     <div class="note-block">
+      <span class="label">Composed Operation</span>
+      <p>The mechanisms do not only work in isolation — they govern together in a single run. Screening sets the decode budget, representation is adjudicated, a live model judges premises, the material claim is triangulated or honestly left unverified, and the selected deployment profile decides what the evidence process must have been: one run, one hash-chained trace. An interactive console puts arbitrary prompts through that full path.</p>
+    </div>
+
+    <div class="note-block">
       <span class="label">Authorship &amp; Process</span>
       <p>Runtime scope and required capabilities are creator-directed; code, schemas, API design, and tests are model-formalized against that direction. This division is recorded explicitly for every build — a documented separation between what was specified and what was implemented, re-verified at each versioned candidate.</p>
     </div>
 
     <div class="proof-notice">
-      <strong>Source is proprietary and not publicly published.</strong> The runtime, rule registry, and full governance canon represent the commercial core of this work. Available for review under NDA — reach out via the contact section below.
+      <strong>Source is proprietary and not publicly published.</strong> The runtime, rule registry, and full governance canon represent the commercial core of this work. The system can be demonstrated live on request — an interactive console runs any prompt you supply through the full governed path and shows what each mechanism decided. Source review is available separately under NDA. Reach out via the contact section below.
+    </div>
+  </section>
+
+  <section id="example">
+    <h2><span class="num">V.</span>A Worked Example</h2>
+    <p class="lede" style="margin-bottom: 26px;">What the governance layer does that a plain model call cannot. Below is an actual live run against a current frontier model, reproduced deterministically by a conformance test.</p>
+
+    <blockquote class="specimen">The James Webb Space Telescope was launched on December&nbsp;25,&nbsp;2021.</blockquote>
+    <p class="specimen-note">That statement is true.</p>
+
+    <ol class="trace">
+      <li><span class="stage">Representation</span><span class="verdict">Clean — nothing obfuscated, nothing hiding in the encoding.</span></li>
+      <li><span class="stage">Premises</span><span class="verdict">Pass, confidence 0.95 — the model judges the statement accurate and internally consistent. It is not wrong.</span></li>
+      <li><span class="stage">Evidence</span><span class="verdict">Indeterminate — all three evidence lanes are incomplete because none of them were run. Incomplete lanes are never treated as clean input.</span></li>
+      <li><span class="stage">Banding</span><span class="verdict">Not permitted as stated — an indeterminate claim may only be expressed with qualification. This sentence asserts flatly.</span></li>
+      <li><span class="stage">Decision</span><span class="verdict"><strong>Modify — held at Communicate after four stages had already allowed it. Nothing is released.</strong></span></li>
+      <li><span class="stage">Audit</span><span class="verdict">Five trace records, hash chain verified.</span></li>
+    </ol>
+
+    <p>Run the same sentence again with the evidence process actually performed, and the claim comes back supported, the wording is permissible, and the run completes.</p>
+
+    <div class="note-block">
+      <span class="label">Why this matters</span>
+      <p>A true claim, and a model confident that it is true, is still not sufficient. The system holds apart two things a plain model call collapses together — <em>the model is sure</em> and <em>this has been checked</em> — and refuses to let the first pass itself off as the second. That distinction is the whole point.</p>
     </div>
   </section>
 
   <section id="frameworks">
-    <h2><span class="num">V.</span>Frameworks &amp; Systems</h2>
+    <h2><span class="num">VI.</span>Frameworks &amp; Systems</h2>
     <div class="fw-list">
       <div class="fw-item">
         <h3><span class="code">CAAS</span> — Cognitive Architecture Assessment System</h3>
@@ -320,7 +377,7 @@
   </section>
 
   <section id="how">
-    <h2><span class="num">VI.</span>How I Work</h2>
+    <h2><span class="num">VII.</span>How I Work</h2>
     <ol class="how">
       <li>Identify the real failure mode.</li>
       <li>Reduce the problem to its smallest honest unit.</li>
@@ -331,7 +388,7 @@
   </section>
 
   <section id="focus">
-    <h2><span class="num">VII.</span>Operational Focus</h2>
+    <h2><span class="num">VIII.</span>Operational Focus</h2>
     <p class="lede" style="margin-bottom: 20px;">My work is designed for:</p>
     <ul class="focus-list">
       <li>AI governance and reasoning systems</li>
@@ -344,12 +401,12 @@
   </section>
 
   <section id="positioning">
-    <h2><span class="num">VIII.</span>Professional Positioning</h2>
+    <h2><span class="num">IX.</span>Professional Positioning</h2>
     <p>This portfolio represents independent framework development focused on practical AI governance, reasoning integrity, structured communication, and operational clarity. The systems are intentionally platform-portable and designed to function independently of any single AI provider or model architecture.</p>
   </section>
 
   <footer class="contact" id="contact">
-    <h2><span class="num">IX.</span>Contact</h2>
+    <h2><span class="num">X.</span>Contact</h2>
     <div class="name">Phillip Packer</div>
     <div class="loc">Independent AI Systems Designer · Phoenix, Arizona</div>
     <a class="email" href="mailto:itf.framework@gmail.com">itf.framework@gmail.com</a>
