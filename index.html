@@ -186,7 +186,20 @@
   }
   .note-block p { margin: 0; font-size: 0.94rem; color: var(--text-dim); }
 
-  /* worked example */
+  /* worked examples */
+  h3.ex-title {
+    font-family: var(--serif); font-size: 1.28rem; font-weight: 600;
+    margin: 0 0 6px; display: flex; align-items: baseline; gap: 12px;
+    letter-spacing: -0.005em;
+  }
+  h3.ex-title .ex-num {
+    font-family: var(--sans); font-size: 0.66rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.16em; color: var(--accent);
+  }
+  section#example h3.ex-title:not(:first-of-type) {
+    margin-top: 46px; padding-top: 40px; border-top: 1px solid var(--rule);
+  }
+
   blockquote.specimen {
     margin: 0; padding: 22px 0 14px; border-top: 1px solid var(--rule);
     font-family: var(--serif); font-size: clamp(1.2rem, 3.2vw, 1.45rem);
@@ -308,11 +321,11 @@
 
     <div class="stat-grid">
       <div class="stat-box"><div class="n" data-count="12">12</div><div class="l">ratified engineering formalizations (EF1–EF12)</div></div>
-      <div class="stat-box"><div class="n" data-count="506">506</div><div class="l">passing conformance &amp; integration tests</div></div>
+      <div class="stat-box"><div class="n" data-count="610">610</div><div class="l">passing conformance &amp; integration tests</div></div>
       <div class="stat-box"><div class="n" data-count="103">103</div><div class="l">registered, stable rule identities</div></div>
       <div class="stat-box"><div class="n" data-count="36">36</div><div class="l">tri-state semantic predicates</div></div>
       <div class="stat-box"><div class="n" data-count="52">52</div><div class="l">registered evaluator modules</div></div>
-      <div class="stat-box"><div class="n" data-count="199">199</div><div class="l">enforcing canon-conformance checks, audited clause by clause</div></div>
+      <div class="stat-box"><div class="n" data-count="228">228</div><div class="l">enforcing canon-conformance checks, audited clause by clause</div></div>
       <div class="stat-box"><div class="n" data-count="16">16</div><div class="l">canon-derived fixture scenarios</div></div>
       <div class="stat-box"><div class="n">100%</div><div class="l">hash-chain integrity verified on trace, status &amp; security ledgers</div></div>
     </div>
@@ -343,8 +356,11 @@
   </section>
 
   <section id="example">
-    <h2><span class="num">V.</span>A Worked Example</h2>
-    <p class="lede" style="margin-bottom: 26px;">What the governance layer does that a plain model call cannot. Below is an actual live run against a current frontier model, reproduced deterministically by a conformance test.</p>
+    <h2><span class="num">V.</span>Worked Examples</h2>
+    <p class="lede" style="margin-bottom: 30px;">Two things the system does that are difficult to claim credibly without showing them: it withholds an answer it cannot support, and it reports the limits of its own assurance.</p>
+
+    <h3 class="ex-title"><span class="ex-num">One</span>A true statement, withheld</h3>
+    <p class="lede" style="margin-bottom: 24px;">An actual live run against a current frontier model, reproduced deterministically by a conformance test.</p>
 
     <blockquote class="specimen">The James Webb Space Telescope was launched on December&nbsp;25,&nbsp;2021.</blockquote>
     <p class="specimen-note">That statement is true.</p>
@@ -363,6 +379,23 @@
     <div class="note-block">
       <span class="label">Why this matters</span>
       <p>A true claim, and a model confident that it is true, is still not sufficient. The system holds apart two things a plain model call collapses together — <em>the model is sure</em> and <em>this has been checked</em> — and refuses to let the first pass itself off as the second. That distinction is the whole point.</p>
+    </div>
+
+    <h3 class="ex-title"><span class="ex-num">Two</span>An audit that reports what it cannot prove</h3>
+    <p class="lede" style="margin-bottom: 24px;">One pass checks the runtime against the promoted canon. This is what it returned on its most recent run.</p>
+
+    <ol class="trace">
+      <li><span class="stage">Provenance</span><span class="verdict">All four governing artifacts matched by digest — the canon, its promoted release, the promotion record, and the packaged rule registry.</span></li>
+      <li><span class="stage">Registry</span><span class="verdict">228 enforcing checks against canon clauses, every one conformant.</span></li>
+      <li><span class="stage">Not agreement</span><span class="verdict">Results that could not be compared, and differences authorised by a recorded reconciliation, are counted and reported separately — never as passes.</span></li>
+      <li><span class="stage">Drift budget</span><span class="verdict">Empty. No drift is accepted as known, so any drift at all fails the audit.</span></li>
+      <li><span class="stage">Finding</span><span class="verdict">A gap in the specification itself: the route that escalates a decision to human authority has no defined path back into the document it may need to change. Reported, not papered over.</span></li>
+      <li><span class="stage">Result</span><span class="verdict"><strong>Passed with no drift — alongside a written section listing what the audit does not cover.</strong></span></li>
+    </ol>
+
+    <div class="note-block">
+      <span class="label">Why this matters</span>
+      <p>An audit that only ever reports green is a marketing artifact. This one separates agreement from absence of evidence, keeps no allowance for tolerated drift, names a hole it found in the governing document, and states plainly that its own test suite proves the code matches the implementer's reading of the canon — not that the reading is correct. Knowing where your assurance stops is the difference between a system you can govern with and one you merely trust.</p>
     </div>
   </section>
 
