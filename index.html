@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Phillip Packer — Independent AI Systems Designer</title>
-<meta name="description" content="Phillip Packer builds frameworks for AI reasoning governance, interaction literacy, cognitive assessment, and structured decision systems.">
+<meta name="description" content="Phillip Packer builds frameworks for AI reasoning governance, interaction literacy, and structured decision systems.">
 <meta property="og:title" content="Phillip Packer — Independent AI Systems Designer">
 <meta property="og:description" content="Frameworks for AI reasoning governance, interaction literacy, and structured decision systems.">
 <meta property="og:type" content="website">
@@ -266,6 +266,7 @@
       <a href="#proof">Proof of Work</a>
       <a href="#example">Worked Examples</a>
       <a href="#stack-builder">Stack Builder</a>
+      <a href="#syntegrate">Syntegrate</a>
       <a href="#frameworks">Frameworks</a>
       <a href="#how">How I Work</a>
       <a href="#focus">Focus</a>
@@ -275,7 +276,7 @@
 
   <section id="about">
     <h2><span class="num">I.</span>About</h2>
-    <p>I build frameworks that bring clarity, accountability, and practical structure to how people and organizations use AI systems. My work focuses on reasoning governance, interaction literacy, cognitive assessment, and structured decision systems that function across models and platforms.</p>
+    <p>I build frameworks that bring clarity, accountability, and practical structure to how people and organizations use AI systems. My work focuses on reasoning governance, interaction literacy, and structured decision systems that function across models and platforms.</p>
     <p class="lede">I came to AI systems work through decades of operational experience, territory management, and process accountability. That background shaped how I approach AI: identify where systems fail, reduce ambiguity, isolate assumptions, and build structures that hold up under pressure. My frameworks are designed to be usable by real people in real environments — not only technical specialists.</p>
   </section>
 
@@ -322,7 +323,7 @@
 
     <div class="stat-grid">
       <div class="stat-box"><div class="n" data-count="12">12</div><div class="l">ratified engineering formalizations (EF1–EF12)</div></div>
-      <div class="stat-box"><div class="n" data-count="1397">1397</div><div class="l">passing conformance &amp; integration tests</div></div>
+      <div class="stat-box"><div class="n" data-count="1499">1499</div><div class="l">passing conformance &amp; integration tests</div></div>
       <div class="stat-box"><div class="n" data-count="108">108</div><div class="l">registered, stable rule identities</div></div>
       <div class="stat-box"><div class="n" data-count="41">41</div><div class="l">tri-state semantic predicates</div></div>
       <div class="stat-box"><div class="n" data-count="52">52</div><div class="l">registered evaluator modules</div></div>
@@ -339,6 +340,11 @@
     <div class="note-block">
       <span class="label">Audited Against Its Own Canon</span>
       <p>The governing specification was promoted to v1.0 under a recorded promotion act; the runtime remains a candidate implementation of it. A single audit pass checks the rule registry against that canon clause by clause, verifies the digests of all four governing artifacts, and reconciles a thirty-eight row conflict ledger — every closure quoting canon text matched verbatim on the run. Any drift fails the audit. It currently passes with none, and it states in writing what it does not cover. New rules do not simply get written in: they are drafted as a proposal, approved, and ratified into the registry as a recorded act — the same discipline the system applies to answers, applied to its own specification.</p>
+    </div>
+
+    <div class="note-block">
+      <span class="label">Corrected By Its Own Audit</span>
+      <p>A full audit in November 2026 tested the execution boundary against the canon's requirement that a disguised command must never make an unsafe path permissible. It found a gap: a destructive command placed after a line break, or wrapped inside another program, was authorized under a grant that allowed only a harmless one. The boundary now follows what would actually run — across line breaks, wrapper programs, and nested shells — and reports code it cannot read as not analysed rather than guessing. The policy was re-versioned, and every bypass found is pinned as a test.</p>
     </div>
 
     <div class="note-block">
@@ -422,13 +428,15 @@
   <section id="stack-builder">
     <h2><span class="num">VI.</span>ITF Stack Builder</h2>
     <p>The method, put in non-technical hands. Stack Builder is a local-first web app that walks a person through the same five stages the kernel enforces — Verify, Align, Structure, Apply, Communicate — and produces an <em>operating guide</em>: reusable instructions and safeguards to place at the start of a conversation with an AI assistant.</p>
-    <p class="lede" style="margin-bottom: 24px;">Each guide comes with two supporting documents: a design and governance record, for lineage and review, and an evaluation test pack, for testing an assistant's behavior before relying on it.</p>
+    <p class="lede" style="margin-bottom: 24px;">Each guide comes with two supporting documents: a design and governance record, for lineage and review, and an evaluation test pack, for testing an assistant's behavior before relying on it. The test pack includes a with-and-without comparison, because an assistant following a guide is not the same as the guide making its answers better.</p>
 
     <ul class="principles">
       <li>No backend, no accounts, no model calls — work stays in the user's own browser</li>
       <li>Installable, and usable offline</li>
       <li>Validated, size-limited imports; full-library backup with undo</li>
       <li>Plain-language guidance at every step, written for first-time users</li>
+      <li>Plain questions about the task itself, each with a one-line reason for asking</li>
+      <li>A compact guide by default — every rule stated once — with the detailed wording one choice away</li>
     </ul>
 
     <div class="note-block" style="margin-top: 30px;">
@@ -437,17 +445,37 @@
     </div>
 
     <div class="proof-notice">
-      <strong>Status:</strong> version 2.1.1 is a verified beta, and a redesigned 2.2 interface is in early user testing. Each release is gated by automated browser regression and static release checks, and shipped with a SHA-256 checksum. The beta is available to evaluate on request — reach out via the contact section below.
+      <strong>Status:</strong> version 2.1.1 is a verified beta, and a redesigned 2.2 interface is in preview (2.2.0-alpha.8), ahead of its first outside-user test. Each release is gated by automated browser regression and static release checks, and shipped with a SHA-256 checksum. The beta is available to evaluate on request — reach out via the contact section below.
+    </div>
+  </section>
+
+  <section id="syntegrate">
+    <h2><span class="num">VII.</span>Syntegrate</h2>
+    <p>A framework, becoming a product. Syntegrate is a guided reflective conversation for adults: it asks about how a person reasons, learns, and makes sense of things, and — only if they ask for it — offers a seven-part <em>working reflection</em> built solely from what they said. It grew out of the conversational framework previously listed on this page, and is now a working application in private beta.</p>
+    <p class="lede" style="margin-bottom: 24px;">The design problem is the opposite of a personality test. A test hands down a result; here every observation is provisional, stated with what it rests on, and open to correction by the person it describes.</p>
+
+    <ul class="principles">
+      <li>Explicit permission before any reflection is written — and it can be declined</li>
+      <li>Delivered one section at a time; each can be agreed with, disputed, or revised</li>
+      <li>Corrections are kept with a permanent history, so a disputed or retired observation is not meant to return as an established claim</li>
+      <li>Pause, resume, skip, or redirect at any point</li>
+      <li>Export everything, or delete it — deletion removes the session and all that was derived from it</li>
+      <li>Safety screening that interrupts the conversation, and fails closed when it cannot decide</li>
+    </ul>
+
+    <div class="note-block" style="margin-top: 30px;">
+      <span class="label">What it will not do</span>
+      <p>No scores, labels, personality types, diagnoses, intelligence claims, or predictions. Observations stay within the session they came from and are never combined into a profile. Where the conversation has not given enough to go on, the reflection is required to say so rather than fill the space. It is not therapy, medical care, or an emergency service, and it says that before a session begins.</p>
+    </div>
+
+    <div class="proof-notice">
+      <strong>Status:</strong> private beta, adults only, ahead of its first outside tester. Public launch and payments are locked behind a written checklist. A full evaluation run in November 2026 first failed, was fixed, and on the final pass of the local build 19 checks passed mechanically and none failed. Five more need a human reader, and the billing and cross-user isolation tests have not been run, so the launch threshold is not yet met. Testing is by invitation; adults interested in taking part can reach out via the contact section below.
     </div>
   </section>
 
   <section id="frameworks">
-    <h2><span class="num">VII.</span>Frameworks &amp; Systems</h2>
+    <h2><span class="num">VIII.</span>Frameworks &amp; Systems</h2>
     <div class="fw-list">
-      <div class="fw-item">
-        <h3><span class="code">CAAS</span> — Cognitive Architecture Assessment System</h3>
-        <p>Conversational framework for identifying reasoning patterns, learning tendencies, and meaning-making structures without clinical scoring or labels.</p>
-      </div>
       <div class="fw-item">
         <h3><span class="code">AURA</span> — AI Usage Readiness Assessment</h3>
         <p>Assessment framework helping individuals and organizations understand AI adoption readiness, trust calibration, and operational interaction patterns.</p>
@@ -464,7 +492,7 @@
   </section>
 
   <section id="how">
-    <h2><span class="num">VIII.</span>How I Work</h2>
+    <h2><span class="num">IX.</span>How I Work</h2>
     <ol class="how">
       <li>Identify the real failure mode.</li>
       <li>Reduce the problem to its smallest honest unit.</li>
@@ -475,7 +503,7 @@
   </section>
 
   <section id="focus">
-    <h2><span class="num">IX.</span>Operational Focus</h2>
+    <h2><span class="num">X.</span>Operational Focus</h2>
     <p class="lede" style="margin-bottom: 20px;">My work is designed for:</p>
     <ul class="focus-list">
       <li>AI governance and reasoning systems</li>
@@ -488,12 +516,12 @@
   </section>
 
   <section id="positioning">
-    <h2><span class="num">X.</span>Professional Positioning</h2>
+    <h2><span class="num">XI.</span>Professional Positioning</h2>
     <p>This portfolio represents independent framework development focused on practical AI governance, reasoning integrity, structured communication, and operational clarity. The systems are intentionally platform-portable and designed to function independently of any single AI provider or model architecture.</p>
   </section>
 
   <footer class="contact" id="contact">
-    <h2><span class="num">XI.</span>Contact</h2>
+    <h2><span class="num">XII.</span>Contact</h2>
     <div class="name">Phillip Packer</div>
     <div class="loc">Independent AI Systems Designer · Phoenix, Arizona</div>
     <a class="email" href="mailto:itf.framework@gmail.com">itf.framework@gmail.com</a>
