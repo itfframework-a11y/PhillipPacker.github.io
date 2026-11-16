@@ -125,12 +125,9 @@
   .kernel-grid p { margin: 0; font-size: 0.94rem; color: var(--text-dim); }
 
   /* frameworks */
-  .fw-list { display: flex; flex-direction: column; }
-  .fw-item { padding: 20px 0; border-bottom: 1px solid var(--rule-soft); }
-  .fw-item:first-child { border-top: 1px solid var(--rule-soft); }
-  .fw-item h3 { font-family: var(--serif); margin: 0 0 5px; font-size: 1.12rem; font-weight: 600; }
-  .fw-item h3 .code { color: var(--accent); }
-  .fw-item p { margin: 0; color: var(--text-dim); font-size: 0.94rem; }
+  figure.shot { margin: 28px 0 8px; }
+  figure.shot img { display: block; width: 100%; height: auto; border: 1px solid var(--rule-soft); }
+  figure.shot figcaption { margin-top: 8px; color: var(--text-dim); font-size: 0.82rem; }
 
   /* how i work */
   ol.how { margin: 0; padding: 0; list-style: none; counter-reset: step; }
@@ -267,7 +264,6 @@
       <a href="#example">Worked Examples</a>
       <a href="#stack-builder">Stack Builder</a>
       <a href="#syntegrate">Syntegrate</a>
-      <a href="#frameworks">Frameworks</a>
       <a href="#how">How I Work</a>
       <a href="#focus">Focus</a>
       <a href="#contact">Contact</a>
@@ -294,11 +290,11 @@
 
   <section id="kernel">
     <h2><span class="num">III.</span>Governance Kernel</h2>
-    <p class="lede" style="margin-bottom: 26px;">Every framework in this portfolio is built on two interlocking governance systems.</p>
+    <p class="lede" style="margin-bottom: 26px;">The work in this portfolio is built on two interlocking governance systems.</p>
     <div class="kernel-grid">
       <div class="item">
         <h3><span class="code">ITF</span> — Integrated Truth Framework</h3>
-        <p>A reasoning-governance system enforcing Verify → Align → Apply → Communicate sequencing to reduce drift, unstable assumptions, and hallucinated reasoning.</p>
+        <p>A reasoning-governance system enforcing Verify → Align → Structure → Apply → Communicate sequencing to reduce drift, unstable assumptions, and hallucinated reasoning.</p>
       </div>
       <div class="item">
         <h3><span class="code">AXIS</span> — Adaptive Expression Intelligence System</h3>
@@ -309,6 +305,7 @@
 
   <section id="proof">
     <h2><span class="num">IV.</span>Proof of Work</h2>
+    <p>In plain terms: I designed a system that sits between an AI model and its answer. Using fixed, written rules — not the model's own confidence — it decides whether an answer may be released, must be qualified, or must be held back, and it records every decision so it can be checked afterwards. The rest of this section is the detail, for readers who want to see how that is built and tested.</p>
     <p class="lede" style="margin-bottom: 28px;">The governance kernel behind ITF and AXIS is implemented, tested, and versioned — not just named. Below is verifiable detail on how it's built and validated, without exposing the runtime source, rule registry, or canon specification itself.</p>
 
     <ol class="flow">
@@ -430,6 +427,11 @@
     <p>The method, put in non-technical hands. Stack Builder is a local-first web app that walks a person through the same five stages the kernel enforces — Verify, Align, Structure, Apply, Communicate — and produces an <em>operating guide</em>: reusable instructions and safeguards to place at the start of a conversation with an AI assistant.</p>
     <p class="lede" style="margin-bottom: 24px;">Each guide comes with two supporting documents: a design and governance record, for lineage and review, and an evaluation test pack, for testing an assistant's behavior before relying on it. The test pack includes a with-and-without comparison, because an assistant following a guide is not the same as the guide making its answers better.</p>
 
+    <figure class="shot">
+      <img src="stack-builder-home.jpg" width="800" height="500" loading="lazy" alt="The Stack Builder home screen: a heading reading 'Build a reusable operating guide for an AI assistant', five numbered steps, and a notice that projects are stored locally in the browser.">
+      <figcaption>The home screen of the 2.2 preview.</figcaption>
+    </figure>
+
     <ul class="principles">
       <li>No backend, no accounts, no model calls — work stays in the user's own browser</li>
       <li>Installable, and usable offline</li>
@@ -454,6 +456,11 @@
     <p>A framework, becoming a product. Syntegrate is a guided reflective conversation for adults: it asks about how a person reasons, learns, and makes sense of things, and — only if they ask for it — offers a seven-part <em>working reflection</em> built solely from what they said. It grew out of the conversational framework previously listed on this page, and is now a working application in private beta.</p>
     <p class="lede" style="margin-bottom: 24px;">The design problem is the opposite of a personality test. A test hands down a result; here every observation is provisional, stated with what it rests on, and open to correction by the person it describes.</p>
 
+    <figure class="shot">
+      <img src="syntegrate-home.jpg" width="800" height="506" loading="lazy" alt="The Syntegrate main page: a heading reading 'A conversation that reflects how your thinking showed up', above the line 'Not a personality test. Not an AI journal.'">
+      <figcaption>The main page of the private beta.</figcaption>
+    </figure>
+
     <ul class="principles">
       <li>Explicit permission before any reflection is written — and it can be declined</li>
       <li>Delivered one section at a time; each can be agreed with, disputed, or revised</li>
@@ -473,26 +480,8 @@
     </div>
   </section>
 
-  <section id="frameworks">
-    <h2><span class="num">VIII.</span>Frameworks &amp; Systems</h2>
-    <div class="fw-list">
-      <div class="fw-item">
-        <h3><span class="code">AURA</span> — AI Usage Readiness Assessment</h3>
-        <p>Assessment framework helping individuals and organizations understand AI adoption readiness, trust calibration, and operational interaction patterns.</p>
-      </div>
-      <div class="fw-item">
-        <h3><span class="code">AURA-IL</span> — Interaction &amp; Prompting Literacy</h3>
-        <p>Educational module focused on abstraction control, prompting clarity, interaction mechanics, and AI communication literacy.</p>
-      </div>
-      <div class="fw-item">
-        <h3><span class="code">DIS + CLEAR</span> — Decision Information System &amp; Clarity Interface</h3>
-        <p>Structured decision-support architecture combining internal logic mapping with human-readable communication workflows.</p>
-      </div>
-    </div>
-  </section>
-
   <section id="how">
-    <h2><span class="num">IX.</span>How I Work</h2>
+    <h2><span class="num">VIII.</span>How I Work</h2>
     <ol class="how">
       <li>Identify the real failure mode.</li>
       <li>Reduce the problem to its smallest honest unit.</li>
@@ -503,25 +492,19 @@
   </section>
 
   <section id="focus">
-    <h2><span class="num">X.</span>Operational Focus</h2>
-    <p class="lede" style="margin-bottom: 20px;">My work is designed for:</p>
+    <h2><span class="num">IX.</span>Focus</h2>
+    <p>This is independent work on practical AI governance, reasoning integrity, and clear communication. The systems are deliberately portable: they are designed to work independently of any single AI provider or model.</p>
+    <p class="lede" style="margin-bottom: 20px;">It is designed for:</p>
     <ul class="focus-list">
       <li>AI governance and reasoning systems</li>
-      <li>AI onboarding and readiness workflows</li>
       <li>Human-centered AI operations</li>
-      <li>Structured consulting workflows</li>
       <li>Decision-support systems</li>
       <li>AI interaction literacy and enablement</li>
     </ul>
   </section>
 
-  <section id="positioning">
-    <h2><span class="num">XI.</span>Professional Positioning</h2>
-    <p>This portfolio represents independent framework development focused on practical AI governance, reasoning integrity, structured communication, and operational clarity. The systems are intentionally platform-portable and designed to function independently of any single AI provider or model architecture.</p>
-  </section>
-
   <footer class="contact" id="contact">
-    <h2><span class="num">XII.</span>Contact</h2>
+    <h2><span class="num">X.</span>Contact</h2>
     <div class="name">Phillip Packer</div>
     <div class="loc">Independent AI Systems Designer · Phoenix, Arizona</div>
     <a class="email" href="mailto:itf.framework@gmail.com">itf.framework@gmail.com</a>
