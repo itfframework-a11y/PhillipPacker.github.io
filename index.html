@@ -3,281 +3,181 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
 <title>Phillip Packer — Independent AI Systems Designer</title>
-<meta name="description" content="Phillip Packer builds frameworks for AI reasoning governance, interaction literacy, and structured decision systems.">
+<meta name="description" content="Phillip Packer designs rules that decide when an AI's answer is ready to use, and builds software that enforces them.">
 <meta property="og:title" content="Phillip Packer — Independent AI Systems Designer">
-<meta property="og:description" content="Frameworks for AI reasoning governance, interaction literacy, and structured decision systems.">
+<meta property="og:description" content="I design rules that decide when an AI's answer is ready to use, and I build software that enforces them.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://itfframework-a11y.github.io/PhillipPacker.github.io/">
 <meta property="og:image" content="https://itfframework-a11y.github.io/PhillipPacker.github.io/card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Phillip Packer — Independent AI Systems Designer. Making AI work the way it should.">
+<meta property="og:image:alt" content="Phillip Packer, Independent AI Systems Designer.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://itfframework-a11y.github.io/PhillipPacker.github.io/card.png">
+<link rel="preload" href="fonts/MonaSans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  /* Mona Sans, (c) The Mona Sans Project Authors, SIL Open Font License 1.1 (fonts/OFL.txt) */
+  @font-face {
+    font-family: "Mona Sans";
+    src: url("fonts/MonaSans-latin.woff2") format("woff2");
+    font-weight: 300 900;
+    font-stretch: 75% 125%;
+    font-style: normal;
+    font-display: swap;
+  }
   :root {
-    --bg: #fbfaf7;
-    --bg-alt: #f5f2ec;
-    --rule: #ddd6cc;
-    --rule-soft: #e9e3d9;
-    --text: #191817;
-    --text-dim: #6a635c;
-    --accent: #7c1f2e;
-    --accent-soft: rgba(124, 31, 46, 0.06);
-    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
-    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --bg: #ffffff;
+    --ink: #0b0b0b;
+    --dim: #4a4a4a;
+    --soft: #e3e3df;
+    --lime: #d9f24e;
+    --lime-soft: #f4fbd6;
+    --font: "Mona Sans", "Segoe UI", Helvetica, Arial, sans-serif;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #131211;
-      --bg-alt: #1a1917;
-      --rule: #302c27;
-      --rule-soft: #262320;
-      --text: #ece8e1;
-      --text-dim: #9c948a;
-      --accent: #c2726f;
-      --accent-soft: rgba(194, 114, 111, 0.10);
-    }
-  }
-
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.65;
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--font); font-size: 17px; line-height: 1.62;
     -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: 720px; margin: 0 auto; padding: 0 26px; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 28px; }
+  a { color: var(--ink); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  a:hover { background: var(--lime); }
 
-  /* ---------- MASTHEAD ---------- */
-  header.hero { padding: 76px 0 52px; }
+  /* ---------- HERO (chartreuse band) ---------- */
+  header.hero { background: var(--lime); padding: 40px 0 52px; }
   .dateline {
-    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.16em;
-    color: var(--text-dim); padding-bottom: 12px; margin-bottom: 30px;
-    border-bottom: 1px solid var(--rule);
-    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.02em; margin-bottom: 48px;
   }
-  .kicker {
-    font-family: var(--serif); font-style: italic; color: var(--accent);
-    font-size: 1.05rem; margin-bottom: 12px;
+  .dateline .status { border: 2px solid var(--ink); padding: 3px 10px; }
+  .kicker { font-weight: 700; font-size: 0.95rem; margin-bottom: 12px; }
+  h1 {
+    font-stretch: 125%; font-weight: 900; text-transform: uppercase;
+    font-size: clamp(3rem, 10.5vw, 6.8rem); line-height: 0.9; letter-spacing: -0.02em;
+    margin: 0 0 28px;
   }
-  header.hero h1 {
-    font-family: var(--serif);
-    font-size: clamp(2.7rem, 8vw, 3.9rem);
-    font-weight: 600; letter-spacing: -0.015em; line-height: 1.04; margin: 0 0 14px;
+  .tagline {
+    font-stretch: 110%; font-weight: 700; font-size: clamp(1.35rem, 3.4vw, 1.9rem);
+    line-height: 1.22; margin: 0 0 18px; max-width: 30ch;
   }
-  header.hero .role { color: var(--text-dim); margin: 0 0 24px; font-size: 1rem; }
-  header.hero .tagline {
-    font-family: var(--serif); font-size: clamp(1.35rem, 3.6vw, 1.6rem);
-    line-height: 1.35; font-weight: 400; margin: 0; max-width: 26ch;
-    padding-top: 24px; border-top: 1px solid var(--rule);
-  }
-  nav.jump {
-    margin-top: 40px; display: flex; flex-wrap: wrap; gap: 6px 22px;
-    font-size: 0.82rem;
-  }
-  nav.jump a {
-    color: var(--text-dim); text-decoration: none;
-    border-bottom: 1px solid transparent; padding-bottom: 1px;
-  }
-  nav.jump a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  mark { background: var(--ink); color: var(--lime); padding: 0 6px; }
+  .role { max-width: 62ch; margin: 0; color: #2b3010; }
+  nav.jump { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 34px; font-size: 0.92rem; font-weight: 600; }
+  nav.jump a { text-decoration: none; border-bottom: 2px solid var(--ink); }
+  nav.jump a:hover { background: var(--ink); color: var(--lime); }
 
   /* ---------- SECTIONS ---------- */
-  section { padding: 52px 0; border-top: 1px solid var(--rule); }
-
+  section { border-top: 6px solid var(--ink); padding: 56px 0 60px; }
+  main > section:first-child { border-top: none; }
   h2 {
-    font-family: var(--serif); font-size: 1.6rem; font-weight: 600;
-    margin: 0 0 22px; display: flex; align-items: baseline; gap: 13px;
-    letter-spacing: -0.01em;
+    font-stretch: 125%; font-weight: 900; font-size: clamp(2rem, 5.5vw, 3rem);
+    line-height: 1; letter-spacing: -0.015em; margin: 0 0 22px;
   }
-  h2 .num {
-    font-size: 0.8rem; color: var(--accent); font-weight: 600;
-    font-variant-numeric: tabular-nums; letter-spacing: 0.02em;
-  }
+  h3.minor { font-stretch: 112%; font-weight: 800; font-size: 1.15rem; margin: 34px 0 10px; }
+  p { max-width: 64ch; margin: 0 0 16px; }
+  .lede { color: var(--dim); }
 
-  p { max-width: 66ch; margin: 0 0 16px; }
-  p:last-child { margin-bottom: 0; }
-  .lede { color: var(--text-dim); }
-
-  /* principles */
   ul.principles {
-    list-style: none; padding: 0; margin: 0;
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 0 32px;
-  }
-  ul.principles li {
-    padding: 11px 0; border-bottom: 1px solid var(--rule-soft);
-  }
-
-  /* kernel — two ruled columns, no boxes */
-  .kernel-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 0 34px;
-  }
-  .kernel-grid .item { padding: 18px 0; border-top: 2px solid var(--accent); }
-  .kernel-grid .item + .item { }
-  .kernel-grid h3 { font-family: var(--serif); margin: 0 0 7px; font-size: 1.12rem; font-weight: 600; }
-  .kernel-grid h3 .code { color: var(--accent); }
-  .kernel-grid p { margin: 0; font-size: 0.94rem; color: var(--text-dim); }
-
-  /* frameworks */
-  figure.shot { margin: 28px 0 8px; }
-  figure.shot img { display: block; width: 100%; height: auto; border: 1px solid var(--rule-soft); }
-  figure.shot figcaption { margin-top: 8px; color: var(--text-dim); font-size: 0.82rem; }
-
-  /* how i work */
-  ol.how { margin: 0; padding: 0; list-style: none; counter-reset: step; }
-  ol.how li {
-    counter-increment: step; position: relative; padding: 12px 0 12px 34px;
-    border-bottom: 1px solid var(--rule-soft);
-  }
-  ol.how li::before {
-    content: counter(step) "."; position: absolute; left: 0; top: 12px;
-    font-family: var(--serif); color: var(--accent); font-weight: 600;
-  }
-  .how-note {
-    margin-top: 22px; font-family: var(--serif); font-size: 1.1rem;
-    font-style: italic; color: var(--text-dim); max-width: 54ch; line-height: 1.5;
-  }
-
-  /* operational focus */
-  ul.focus-list {
     list-style: none; padding: 0; margin: 0;
     display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0 32px;
   }
-  ul.focus-list li { padding: 11px 0; border-bottom: 1px solid var(--rule-soft); font-size: 0.96rem; }
+  ul.principles li { padding: 12px 0; border-bottom: 1px solid var(--soft); font-weight: 500; }
 
-  /* proof of work */
-  ol.flow { margin: 0 0 34px; padding: 0; list-style: none; counter-reset: stage; }
-  ol.flow li {
-    counter-increment: stage; position: relative;
-    padding: 10px 0 10px 38px; border-bottom: 1px solid var(--rule-soft);
-    font-size: 0.94rem;
-  }
-  ol.flow li:first-child { border-top: 1px solid var(--rule-soft); }
-  ol.flow li::before {
-    content: counter(stage, decimal-leading-zero); position: absolute; left: 0; top: 10px;
-    font-size: 0.75rem; color: var(--accent); font-variant-numeric: tabular-nums;
-    letter-spacing: 0.04em; padding-top: 3px;
-  }
+  /* proof */
+  .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 28px; margin: 30px 0 34px; }
+  .stat-box { border-top: 6px solid var(--ink); padding-top: 14px; }
+  .stat-box .n { font-stretch: 125%; font-weight: 900; font-size: clamp(2.4rem, 6vw, 3.3rem); line-height: 1; }
+  .stat-box .l { font-size: 0.86rem; color: var(--dim); margin-top: 8px; }
+  .proof-notice { border: 2px solid var(--ink); padding: 16px 20px; margin-top: 28px; font-size: 0.95rem; max-width: 64ch; }
+  .proof-notice strong { font-weight: 800; }
 
-  .stat-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(146px, 1fr));
-    gap: 0 30px; border-top: 1px solid var(--rule); margin-bottom: 34px;
-  }
-  .stat-box { padding: 16px 0 15px; border-bottom: 1px solid var(--rule-soft); }
-  .stat-box .n {
-    font-family: var(--serif); font-size: 2.1rem; font-weight: 600; line-height: 1.05;
-    font-variant-numeric: tabular-nums; color: var(--text);
-  }
-  .stat-box .l { font-size: 0.76rem; color: var(--text-dim); margin-top: 3px; line-height: 1.45; }
-
-  .note-block { margin-bottom: 26px; padding-left: 20px; border-left: 2px solid var(--accent); }
-  .note-block .label {
-    display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em;
-    color: var(--accent); font-weight: 700; margin-bottom: 7px;
-  }
-  .note-block p { margin: 0; font-size: 0.94rem; color: var(--text-dim); }
-
-  /* worked examples */
+  /* examples */
   h3.ex-title {
-    font-family: var(--serif); font-size: 1.28rem; font-weight: 600;
-    margin: 0 0 6px; display: flex; align-items: baseline; gap: 12px;
-    letter-spacing: -0.005em;
+    display: flex; align-items: center; gap: 14px;
+    font-stretch: 112%; font-weight: 800; font-size: clamp(1.3rem, 3.2vw, 1.6rem); line-height: 1.15;
+    margin: 0 0 8px;
   }
-  h3.ex-title .ex-num {
-    font-family: var(--sans); font-size: 0.66rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.16em; color: var(--accent);
+  .ex-num {
+    flex: none; display: inline-grid; place-items: center; width: 40px; height: 40px;
+    background: var(--lime); font-stretch: 125%; font-weight: 900; font-size: 1.15rem;
   }
-  section#example h3.ex-title:not(:first-of-type) {
-    margin-top: 46px; padding-top: 40px; border-top: 1px solid var(--rule);
-  }
-
+  section#examples h3.ex-title:not(:first-of-type) { margin-top: 54px; padding-top: 44px; border-top: 1px solid var(--soft); }
   blockquote.specimen {
-    margin: 0; padding: 22px 0 14px; border-top: 1px solid var(--rule);
-    font-family: var(--serif); font-size: clamp(1.2rem, 3.2vw, 1.45rem);
-    line-height: 1.4; max-width: 30ch;
+    margin: 0 0 6px; padding: 4px 0 4px 20px; border-left: 6px solid var(--ink);
+    font-weight: 700; font-size: clamp(1.15rem, 3vw, 1.45rem); line-height: 1.35; max-width: 34ch;
   }
-  .specimen-note {
-    font-family: var(--serif); font-style: italic; color: var(--accent);
-    margin: 0 0 26px; font-size: 1rem;
-  }
-  ol.trace { margin: 0 0 24px; padding: 0; list-style: none; }
+  .specimen-note { color: var(--dim); font-weight: 600; margin: 8px 0 22px; }
+  ol.trace { margin: 0 0 20px; padding: 0; list-style: none; border-top: 1px solid var(--soft); }
   ol.trace li {
-    display: grid; grid-template-columns: 132px 1fr; gap: 18px;
-    padding: 12px 0; border-bottom: 1px solid var(--rule-soft);
-    align-items: baseline;
+    display: grid; grid-template-columns: 150px 1fr; gap: 18px; align-items: baseline;
+    padding: 12px 0; border-bottom: 1px solid var(--soft);
   }
-  ol.trace li:first-child { border-top: 1px solid var(--rule-soft); }
-  ol.trace .stage {
-    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.13em;
-    color: var(--accent); font-weight: 700;
-  }
-  ol.trace .verdict { font-size: 0.95rem; color: var(--text-dim); }
-  ol.trace .verdict strong { color: var(--text); font-weight: 600; }
-  @media (max-width: 520px) {
+  ol.trace .stage { font-stretch: 112%; font-weight: 800; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  ol.trace .verdict { color: var(--dim); font-size: 0.97rem; }
+  ol.trace .verdict strong { color: var(--ink); font-weight: 700; }
+
+  /* products */
+  figure.shot { margin: 28px 0 10px; }
+  figure.shot img { display: block; width: 100%; height: auto; border: 2px solid var(--ink); }
+  figure.shot figcaption { margin-top: 8px; color: var(--dim); font-size: 0.84rem; }
+
+  /* how i work */
+  ol.how { margin: 0; padding: 0; list-style: none; counter-reset: step; }
+  ol.how li { counter-increment: step; display: grid; grid-template-columns: 56px 1fr; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--soft); font-weight: 600; font-size: 1.05rem; }
+  ol.how li::before { content: counter(step); font-stretch: 125%; font-weight: 900; font-size: 1.6rem; line-height: 1; }
+  .how-note { margin-top: 24px; font-weight: 700; font-size: 1.1rem; max-width: 52ch; }
+
+  /* contact (chartreuse band) */
+  footer.contact { background: var(--lime); padding: 56px 0 64px; }
+  footer.contact h2 { margin-bottom: 18px; }
+  footer.contact .name { font-weight: 800; font-size: 1.15rem; }
+  footer.contact .loc { margin-bottom: 18px; }
+  footer.contact a.email { font-stretch: 112%; font-weight: 800; font-size: clamp(1.3rem, 4vw, 2rem); }
+  footer.contact .fine { margin-top: 40px; font-size: 0.8rem; font-weight: 600; }
+
+  @media (max-width: 600px) {
+    .wrap { padding: 0 20px; }
+    .stat-grid { grid-template-columns: 1fr; gap: 22px; }
     ol.trace li { grid-template-columns: 1fr; gap: 4px; }
-  }
-
-  .proof-notice {
-    font-size: 0.88rem; color: var(--text-dim);
-    border-top: 1px solid var(--rule); padding-top: 20px;
-  }
-  .proof-notice strong { color: var(--text); font-weight: 600; }
-
-  /* contact */
-  footer.contact { padding: 52px 0 88px; border-top: 1px solid var(--rule); }
-  footer.contact .name { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; margin-bottom: 3px; }
-  footer.contact .loc { color: var(--text-dim); margin-bottom: 16px; font-size: 0.95rem; }
-  footer.contact a.email {
-    font-family: var(--serif); font-size: 1.15rem; color: var(--accent);
-    text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px;
-  }
-  footer.contact .fine {
-    margin-top: 44px; padding-top: 16px; border-top: 1px solid var(--rule-soft);
-    color: var(--text-dim); font-size: 0.75rem;
-    text-transform: uppercase; letter-spacing: 0.1em;
+    ol.how li { grid-template-columns: 44px 1fr; }
   }
 </style>
 </head>
 <body>
 
-<div class="wrap">
-  <header class="hero">
+<header class="hero">
+  <div class="wrap">
     <div class="dateline">
       <span>Phoenix, Arizona</span>
-      <span>Canon v1.0 promoted · Runtime v0.3.0 candidate</span>
+      <span class="status">Open to work</span>
     </div>
     <div class="kicker">Independent AI Systems Designer</div>
-    <h1>Phillip Packer</h1>
-    <p class="role">Reasoning governance · Interaction literacy · Structured decision systems</p>
-    <p class="tagline">Making AI work the way it should.</p>
+    <h1>Phillip<br>Packer</h1>
+    <p class="tagline">I design rules that decide when an AI's answer is <mark>ready to use</mark>, and I build software that enforces them.</p>
+    <p class="role">Before AI, I spent 25 years running sales territories on my own. That work taught me to look for where a system breaks before it costs someone. Since 2024 I have pointed that habit at AI.</p>
     <nav class="jump">
-      <a href="#about">About</a>
-      <a href="#principles">Principles</a>
-      <a href="#kernel">Kernel</a>
-      <a href="#proof">Proof of Work</a>
-      <a href="#example">Worked Examples</a>
+      <a href="#what">What I build</a>
+      <a href="#proof">Proof</a>
+      <a href="#examples">Examples</a>
       <a href="#guidewright">Guidewright</a>
       <a href="#syntegrate">Syntegrate</a>
-      <a href="#how">How I Work</a>
-      <a href="#focus">Focus</a>
+      <a href="#how">How I work</a>
       <a href="#contact">Contact</a>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <section id="about">
-    <h2><span class="num">I.</span>About</h2>
-    <p>I build frameworks that bring clarity, accountability, and practical structure to how people and organizations use AI systems. My work focuses on reasoning governance, interaction literacy, and structured decision systems that function across models and platforms.</p>
-    <p class="lede">I came to AI systems work through decades of operational experience, territory management, and process accountability. That background shaped how I approach AI: identify where systems fail, reduce ambiguity, isolate assumptions, and build structures that hold up under pressure. My frameworks are designed to be usable by real people in real environments — not only technical specialists.</p>
-  </section>
+<main class="wrap">
+  <section id="what">
+    <h2>What I build</h2>
+    <p>AI models sound equally sure whether they are right or wrong. I designed a system that sits between a model and its answer and does not take the model's word for it. It checks the answer against fixed, written rules, then decides whether the answer can go out as written, needs qualifying, or should be held back. Every decision is recorded so it can be checked later.</p>
+    <p>The rules come from a framework I developed, the Integrated Truth Framework (ITF). Every answer passes through five stages in order: Verify, Align, Structure, Apply and Communicate. A second layer, AXIS, adjusts how an answer is worded without changing what it claims.</p>
 
-  <section id="principles">
-    <h2><span class="num">II.</span>Core Principles</h2>
+    <h3 class="minor">What I hold to</h3>
     <ul class="principles">
       <li>Truth before tone</li>
       <li>Clear boundaries and scope enforcement</li>
@@ -288,144 +188,73 @@
     </ul>
   </section>
 
-  <section id="kernel">
-    <h2><span class="num">III.</span>Governance Kernel</h2>
-    <p class="lede" style="margin-bottom: 26px;">The work in this portfolio is built on two interlocking governance systems.</p>
-    <div class="kernel-grid">
-      <div class="item">
-        <h3><span class="code">ITF</span> — Integrated Truth Framework</h3>
-        <p>A reasoning-governance system enforcing Verify → Align → Structure → Apply → Communicate sequencing to reduce drift, unstable assumptions, and hallucinated reasoning.</p>
-      </div>
-      <div class="item">
-        <h3><span class="code">AXIS</span> — Adaptive Expression Intelligence System</h3>
-        <p>A delivery-governance layer that adapts communication style and structure while preserving factual integrity and logical consistency.</p>
-      </div>
-    </div>
-  </section>
-
   <section id="proof">
-    <h2><span class="num">IV.</span>Proof of Work</h2>
-    <p>In plain terms: I designed a system that sits between an AI model and its answer. Using fixed, written rules — not the model's own confidence — it decides whether an answer may be released, must be qualified, or must be held back, and it records every decision so it can be checked afterwards. The rest of this section is the detail, for readers who want to see how that is built and tested.</p>
-    <p class="lede" style="margin-bottom: 28px;">The governance kernel behind ITF and AXIS is implemented, tested, and versioned — not just named. Below is verifiable detail on how it's built and validated, without exposing the runtime source, rule registry, or canon specification itself.</p>
-
-    <ol class="flow">
-      <li>Delivery + evaluation attempt</li>
-      <li>Evaluator registry</li>
-      <li>Canonical signals + typed conflicts</li>
-      <li>Contract gate + deterministic kernel</li>
-      <li>Decision-bound execution boundary</li>
-      <li>Atomic trace + state commit</li>
-      <li>Security ledger + checkpoints</li>
-    </ol>
+    <h2>Proof</h2>
+    <p>This is working software, not a set of slides. The source code is private, but here is what can be checked about it.</p>
 
     <div class="stat-grid">
-      <div class="stat-box"><div class="n" data-count="12">12</div><div class="l">ratified engineering formalizations (EF1–EF12)</div></div>
-      <div class="stat-box"><div class="n" data-count="1499">1499</div><div class="l">passing conformance &amp; integration tests</div></div>
-      <div class="stat-box"><div class="n" data-count="108">108</div><div class="l">registered, stable rule identities</div></div>
-      <div class="stat-box"><div class="n" data-count="41">41</div><div class="l">tri-state semantic predicates</div></div>
-      <div class="stat-box"><div class="n" data-count="52">52</div><div class="l">registered evaluator modules</div></div>
-      <div class="stat-box"><div class="n" data-count="228">228</div><div class="l">enforcing canon-conformance checks, audited clause by clause</div></div>
-      <div class="stat-box"><div class="n" data-count="16">16</div><div class="l">canon-derived fixture scenarios</div></div>
-      <div class="stat-box"><div class="n">100%</div><div class="l">hash-chain integrity verified on trace, status &amp; security ledgers</div></div>
+      <div class="stat-box"><div class="n">1,499</div><div class="l">automated tests, all passing</div></div>
+      <div class="stat-box"><div class="n">108</div><div class="l">written rules, each with a fixed identity</div></div>
+      <div class="stat-box"><div class="n">228</div><div class="l">checks of the software against its own rulebook, all passing</div></div>
     </div>
 
-    <div class="note-block">
-      <span class="label">Full Canon Coverage</span>
-      <p>Every load-bearing capability in the governance canon now has an executable, tested implementation: evidence triangulation, representation-neutrality adjudication, deployment-profile intervention policy, drift and governance-health detection, and the AXIS presentation layer. No canon area remains specification-only.</p>
-    </div>
-
-    <div class="note-block">
-      <span class="label">Audited Against Its Own Canon</span>
-      <p>The governing specification was promoted to v1.0 under a recorded promotion act; the runtime remains a candidate implementation of it. A single audit pass checks the rule registry against that canon clause by clause, verifies the digests of all four governing artifacts, and reconciles a thirty-eight row conflict ledger — every closure quoting canon text matched verbatim on the run. Any drift fails the audit. It currently passes with none, and it states in writing what it does not cover. New rules do not simply get written in: they are drafted as a proposal, approved, and ratified into the registry as a recorded act — the same discipline the system applies to answers, applied to its own specification.</p>
-    </div>
-
-    <div class="note-block">
-      <span class="label">Corrected By Its Own Audit</span>
-      <p>A full audit in November 2026 tested the execution boundary against the canon's requirement that a disguised command must never make an unsafe path permissible. It found a gap: a destructive command placed after a line break, or wrapped inside another program, was authorized under a grant that allowed only a harmless one. The boundary now follows what would actually run — across line breaks, wrapper programs, and nested shells — and reports code it cannot read as not analysed rather than guessing. The policy was re-versioned, and every bypass found is pinned as a test.</p>
-    </div>
-
-    <div class="note-block">
-      <span class="label">Composed Operation</span>
-      <p>The mechanisms do not only work in isolation — they govern together in a single run. Screening sets the decode budget, representation is adjudicated, a live model judges premises, the material claim is triangulated or honestly left unverified, and the selected deployment profile decides what the evidence process must have been: one run, one hash-chained trace. An interactive console puts arbitrary prompts through that full path.</p>
-    </div>
-
-    <div class="note-block">
-      <span class="label">Authorship &amp; Process</span>
-      <p>Runtime scope and required capabilities are creator-directed; code, schemas, API design, and tests are model-formalized against that direction. This division is recorded explicitly for every build — a documented separation between what was specified and what was implemented, re-verified at each versioned candidate.</p>
-    </div>
+    <p>The 228 checks come from an audit that compares the software with its written rulebook, clause by clause, and fails on any disagreement. It currently passes.</p>
+    <p>A wider review in November 2026 found a real gap. A harmful command placed after a line break could slip through a permission meant only for a harmless one. The check was rebuilt to follow what would actually run, and every way around it that was found is now a permanent test.</p>
+    <p>How it was built: I set the scope, the rules and what each part must do. AI models wrote the code and the tests under that direction, and the split is recorded for every version.</p>
 
     <div class="proof-notice">
-      <strong>Source is proprietary and not publicly published.</strong> The runtime, rule registry, and full governance canon represent the commercial core of this work. The system can be demonstrated live on request — an interactive console runs any prompt you supply through the full governed path and shows what each mechanism decided. Source review is available separately under NDA. Reach out via the contact section below.
+      The source isn't public. I can run a live demonstration on request: you give it any prompt and see what each part decided. Source review is available under NDA.
     </div>
   </section>
 
-  <section id="example">
-    <h2><span class="num">V.</span>Worked Examples</h2>
-    <p class="lede" style="margin-bottom: 30px;">Three things the system does that are difficult to claim credibly without showing them: it withholds an answer it cannot support, it reports the limits of its own assurance, and in one recorded series its governing decision held steady across five vendors' models.</p>
+  <section id="examples">
+    <h2>Three examples</h2>
+    <p class="lede">Three recorded runs. They show how the system behaves. They don't show that it beats other approaches, which needs testing I haven't finished.</p>
 
-    <h3 class="ex-title"><span class="ex-num">One</span>A true statement, withheld</h3>
-    <p class="lede" style="margin-bottom: 24px;">An actual live run against a current frontier model, reproduced deterministically by a conformance test.</p>
-
+    <h3 class="ex-title" style="margin-top: 34px;"><span class="ex-num">1</span>A true statement, held back</h3>
+    <p class="lede" style="margin-bottom: 20px;">A live run against a current AI model, later reproduced by an automated test.</p>
     <blockquote class="specimen">The James Webb Space Telescope was launched on December&nbsp;25,&nbsp;2021.</blockquote>
     <p class="specimen-note">That statement is true.</p>
-
     <ol class="trace">
-      <li><span class="stage">Representation</span><span class="verdict">Clean — nothing obfuscated, nothing hiding in the encoding.</span></li>
-      <li><span class="stage">Premises</span><span class="verdict">Pass, confidence 0.95 — the model judges the statement accurate and internally consistent. It is not wrong.</span></li>
-      <li><span class="stage">Evidence</span><span class="verdict">Indeterminate — all three evidence lanes are incomplete because none of them were run: grounding, independent validation, and challenge. Incomplete lanes are never treated as clean input.</span></li>
-      <li><span class="stage">Banding</span><span class="verdict">Not permitted as stated — an indeterminate claim may only be expressed with qualification. This sentence asserts flatly.</span></li>
-      <li><span class="stage">Decision</span><span class="verdict"><strong>Modify — held at Communicate after four stages had already allowed it. Nothing is released.</strong></span></li>
-      <li><span class="stage">Audit</span><span class="verdict">Five trace records, hash chain verified.</span></li>
+      <li><span class="stage">Representation</span><span class="verdict">Clean. Nothing hidden in the wording or the encoding.</span></li>
+      <li><span class="stage">Premises</span><span class="verdict">Pass, confidence 0.95. The model judges the statement accurate and consistent, and it is right.</span></li>
+      <li><span class="stage">Evidence</span><span class="verdict">Undecided. The three evidence checks (grounding, independent validation and challenge) were never run, and an unrun check is never treated as a pass.</span></li>
+      <li><span class="stage">Wording</span><span class="verdict">Not allowed as written. An unverified claim may only be stated with a qualifier, and this sentence states it flatly.</span></li>
+      <li><span class="stage">Decision</span><span class="verdict"><strong>Held at the last stage, after four stages had passed it. Nothing was released.</strong></span></li>
+      <li><span class="stage">Record</span><span class="verdict">Five entries, chained so that any later edit would show.</span></li>
     </ol>
+    <p>Run the same sentence with the evidence checks performed and it comes back supported and is released. The model was confident and correct, but nothing had actually been checked, so the answer waited.</p>
 
-    <p>Run the same sentence again with the evidence process actually performed, and the claim comes back supported, the wording is permissible, and the run completes.</p>
-
-    <div class="note-block">
-      <span class="label">Why this matters</span>
-      <p>A true claim, and a model confident that it is true, is still not sufficient. The system holds apart two things a plain model call collapses together — <em>the model is sure</em> and <em>this has been checked</em> — and refuses to let the first pass itself off as the second. That distinction is the whole point.</p>
-    </div>
-
-    <h3 class="ex-title"><span class="ex-num">Two</span>An audit that reports what it cannot prove</h3>
-    <p class="lede" style="margin-bottom: 24px;">One pass checks the runtime against the promoted canon. This is what it returned on its most recent run.</p>
-
+    <h3 class="ex-title"><span class="ex-num">2</span>An audit that lists its own limits</h3>
+    <p class="lede" style="margin-bottom: 20px;">The audit's most recent run, summarized.</p>
     <ol class="trace">
-      <li><span class="stage">Provenance</span><span class="verdict">All four governing artifacts matched by digest — the canon, its promoted release, the promotion record, and the packaged rule registry.</span></li>
-      <li><span class="stage">Registry</span><span class="verdict">228 enforcing checks against canon clauses, every one conformant.</span></li>
-      <li><span class="stage">Not agreement</span><span class="verdict">Results that could not be compared, and differences authorised by a recorded reconciliation, are counted and reported separately — never as passes.</span></li>
-      <li><span class="stage">Drift budget</span><span class="verdict">Empty. No drift is accepted as known, so any drift at all fails the audit.</span></li>
-      <li><span class="stage">Finding</span><span class="verdict">A gap in the specification itself: the route that escalates a decision to human authority has no defined path back into the document it may need to change. Reported, not papered over.</span></li>
-      <li><span class="stage">Result</span><span class="verdict"><strong>Passed with no drift — alongside a written section listing what the audit does not cover.</strong></span></li>
+      <li><span class="stage">Files</span><span class="verdict">The four governing files matched their recorded fingerprints.</span></li>
+      <li><span class="stage">Rulebook</span><span class="verdict">228 checks against specific clauses, all in agreement.</span></li>
+      <li><span class="stage">Not counted</span><span class="verdict">Results it could not compare, and differences approved in writing, are reported separately and never counted as passes.</span></li>
+      <li><span class="stage">Tolerance</span><span class="verdict">None. Any disagreement fails the audit.</span></li>
+      <li><span class="stage">Finding</span><span class="verdict">A gap in the rulebook itself: decisions escalated to a person have no defined way back into the rulebook they might need to change. It is recorded as an open question.</span></li>
+      <li><span class="stage">Result</span><span class="verdict"><strong>Passed, with a written list of what the audit does not cover.</strong></span></li>
     </ol>
+    <p>That list includes the audit's own weak spot: the tests show the software matches my reading of the rules, not that my reading is right.</p>
 
-    <div class="note-block">
-      <span class="label">Why this matters</span>
-      <p>An audit that only ever reports green is a marketing artifact. This one separates agreement from absence of evidence, keeps no allowance for tolerated drift, names a hole it found in the governing document, and states plainly that its own test suite proves the code matches the implementer's reading of the canon — not that the reading is correct. Knowing where your assurance stops is the difference between a system you can govern with and one you merely trust.</p>
-    </div>
-
-    <h3 class="ex-title"><span class="ex-num">Three</span>Five models, one decision</h3>
-    <p class="lede" style="margin-bottom: 24px;">"Model-agnostic" is listed above as a principle. This is the evidence for it: the same governance run repeated across five model vendors, three samples each.</p>
-
+    <h3 class="ex-title"><span class="ex-num">3</span>Five vendors, one decision</h3>
+    <p class="lede" style="margin-bottom: 20px;">The same run repeated on models from five companies, three times each.</p>
     <blockquote class="specimen">the end of the wrld is iminent due to vlnt crm and a lack of fth in g od</blockquote>
-    <p class="specimen-note">A deliberately broken input — misspelt, unbounded, asserting rather than asking.</p>
-
+    <p class="specimen-note">A deliberately broken input: misspelled, with no clear request.</p>
     <ol class="trace">
-      <li><span class="stage">Vendors</span><span class="verdict">OpenAI, Google, Anthropic, xAI, and Moonshot, each judging the same near-matched prompt through the same kernel.</span></li>
-      <li><span class="stage">Premise check</span><span class="verdict">Varied. Three models flagged the premises as unassessable, at confidence from 0.72 to 0.97. Two could not hold any judgment across three draws of the same input, and were recorded as indeterminate rather than guessed for.</span></li>
-      <li><span class="stage">Scope check</span><span class="verdict">Four of five agreed the request named no task or bound. The scope question proved more determinate than the premise question — the runs say so, rather than it being intuition.</span></li>
-      <li><span class="stage">Latency</span><span class="verdict">A 5.4× spread for identical call counts. At volume the model choice moves throughput far more than it moves the decision.</span></li>
-      <li><span class="stage">Decision</span><span class="verdict"><strong>Identical across all five — Reask, held at Verify, nothing released.</strong></span></li>
+      <li><span class="stage">Vendors</span><span class="verdict">OpenAI, Google, Anthropic, xAI and Moonshot, each run through the same rules.</span></li>
+      <li><span class="stage">Premise check</span><span class="verdict">Mixed. Three models flagged the premises as impossible to assess, at confidence between 0.72 and 0.97. Two gave different answers on repeated tries and were recorded as undecided rather than guessed.</span></li>
+      <li><span class="stage">Scope check</span><span class="verdict">Four of five agreed the input asked for nothing specific.</span></li>
+      <li><span class="stage">Speed</span><span class="verdict">The slowest took 5.4 times as long as the fastest for the same work.</span></li>
+      <li><span class="stage">Decision</span><span class="verdict"><strong>The same for all five: ask for clarification, release nothing.</strong></span></li>
     </ol>
-
-    <div class="note-block">
-      <span class="label">Why this matters</span>
-      <p>The models disagreed with each other, and two disagreed with themselves. The governing decision did not move. That is what it looks like when the decision belongs to the kernel and not to whichever model happened to be asked — and when indeterminacy fails closed instead of being papered over with a guess. Recorded as an observation from one series, not a proof: the prompts were near-matched rather than byte-identical, and whether cross-model agreement is a governing property is still an open question in the canon.</p>
-    </div>
+    <p>The models disagreed with each other, and two disagreed with themselves, but the decision stayed the same. This is one series of near-identical prompts, not proof, and whether it holds in general is still an open question.</p>
   </section>
 
   <section id="guidewright">
-    <h2><span class="num">VI.</span>Guidewright</h2>
-    <p>The method, put in non-technical hands. Guidewright, called ITF Stack Builder until November 2026, is a local-first web app that walks a person through the same five stages the kernel enforces — Verify, Align, Structure, Apply, Communicate — and produces an <em>operating guide</em>: reusable instructions and safeguards to place at the start of a conversation with an AI assistant. Everything the user sees is in plain language: the method decides which rules a guide carries and in what order, but its vocabulary stays in the design record, out of the way.</p>
-    <p class="lede" style="margin-bottom: 24px;">Each guide comes with two supporting documents: a design and governance record, for lineage and review, and an evaluation test pack, for testing an assistant's behavior before relying on it. The test pack includes a with-and-without comparison, because an assistant following a guide is not the same as the guide making its answers better.</p>
+    <h2>Guidewright</h2>
+    <p>Guidewright puts the method in front of people who don't write code. It is a web app that asks plain questions about a task and turns the answers into an operating guide: instructions and safeguards you paste at the start of a conversation with an AI assistant. It was called ITF Stack Builder until November 2026.</p>
+    <p>Behind the questions, the framework decides which rules a guide carries and in what order, but none of that vocabulary reaches the user. Each guide comes with a design record and a test pack. The test pack has you run the same tasks with and without the guide, because an assistant following a guide is not the same as the guide improving its answers.</p>
 
     <figure class="shot">
       <img src="guidewright-home.jpg" width="800" height="500" loading="lazy" alt="The Guidewright home screen: a confidential-beta notice, then a heading reading 'Build a reusable operating guide for an AI assistant' beside an illustration of a builder stacking the five parts of a guide.">
@@ -433,29 +262,23 @@
     </figure>
 
     <ul class="principles">
-      <li>No backend, no accounts, no model calls — work stays in the user's own browser</li>
-      <li>Installable, and usable offline</li>
-      <li>Validated, size-limited imports; full-library backup with undo</li>
-      <li>Plain-language guidance at every step, written for first-time users</li>
-      <li>Plain questions about the task itself, each with a one-line reason for asking</li>
-      <li>A compact guide by default — every rule stated once — with the detailed wording one choice away</li>
-      <li>Advanced options to rename the three checks or switch off optional rules — the core safeguards cannot be switched off</li>
+      <li>Runs entirely in the browser: no accounts, no server, no AI calls</li>
+      <li>Works offline and can be installed</li>
+      <li>Short guide by default, each rule stated once, with more detail one click away</li>
+      <li>Advanced users can rename the checks or turn off optional rules; the core safeguards stay on</li>
     </ul>
 
-    <div class="note-block" style="margin-top: 30px;">
-      <span class="label">What it tells the user it cannot do</span>
-      <p>A guide built from the basic questions alone adds general operating rules; it does not add or verify subject-matter expertise — and the app says so, in the interface and in the generated guide itself, until specialized instructions are added. Its review feature is described as a structural check. And every guide states its own limits: an assistant saying it checked something is not proof that it did, and following the guide does not make the answers expert. The same refusal to overclaim that governs the kernel governs the product.</p>
-    </div>
+    <p style="margin-top: 26px;">It is upfront about what it can't do. A guide built from the basic questions adds general rules, not subject expertise, and the app says so until specialized instructions are added. Every guide also says that an assistant claiming it checked something is not proof that it did.</p>
 
     <div class="proof-notice">
-      <strong>Status:</strong> version 2.1.1 is a verified beta, and the redesigned 2.2 interface, renamed Guidewright, is in preview (2.2.0-alpha.14), ahead of its first outside-user test. Each release is gated by automated browser regression and static release checks before it is packaged. The beta is available to evaluate on request, under tester terms — reach out via the contact section below.
+      <strong>Status:</strong> 2.1.1 is a verified beta. The redesigned 2.2 version is in preview (2.2.0-alpha.14) and hasn't had its first outside tester yet. The beta is available to try on request, under tester terms.
     </div>
   </section>
 
   <section id="syntegrate">
-    <h2><span class="num">VII.</span>Syntegrate</h2>
-    <p>A framework, becoming a product. Syntegrate is a guided reflective conversation for adults: it asks about how a person reasons, learns, and makes sense of things, and — only if they ask for it — offers a seven-part <em>working reflection</em> built solely from what they said. It grew out of the conversational framework previously listed on this page, and is now a working application in private beta.</p>
-    <p class="lede" style="margin-bottom: 24px;">The design problem is the opposite of a personality test. A test hands down a result; here every observation is provisional, stated with what it rests on, and open to correction by the person it describes.</p>
+    <h2>Syntegrate</h2>
+    <p>Syntegrate is a guided conversation for adults about how they reason, learn and make sense of things. If they ask, and only then, it writes a seven-part reflection built only from what they said. It started as one of my frameworks and is now a working app in private beta.</p>
+    <p>It is meant to work the opposite way from a personality test. A test hands you a result. Here every observation says what it is based on and can be corrected by the person it describes.</p>
 
     <figure class="shot">
       <img src="syntegrate-main.jpg" width="800" height="500" loading="lazy" alt="The Syntegrate main page: a heading reading 'See how you think, in your own words.' beside an illustrative example of a short note and the reflection section written from it, with Agree, Revise and Disagree buttons.">
@@ -463,88 +286,42 @@
     </figure>
 
     <ul class="principles">
-      <li>Explicit permission before any reflection is written — and it can be declined</li>
-      <li>Delivered one section at a time; each can be agreed with, disputed, or revised</li>
-      <li>Corrections are kept with a permanent history, so a disputed or retired observation is not meant to return as an established claim</li>
-      <li>Pause, resume, skip, or redirect at any point</li>
-      <li>Export everything, or delete it — deletion removes the session and all that was derived from it</li>
-      <li>Safety screening that interrupts the conversation, and fails closed when it cannot decide</li>
+      <li>Asks permission before writing any reflection, and you can say no</li>
+      <li>One section at a time; you can agree with, dispute or revise each</li>
+      <li>Corrections are kept, so a disputed observation doesn't come back as fact</li>
+      <li>Pause, skip or change direction at any point</li>
+      <li>Export everything, or delete it along with everything derived from it</li>
+      <li>Safety screening can stop the conversation, and stops it when unsure</li>
     </ul>
 
-    <div class="note-block" style="margin-top: 30px;">
-      <span class="label">What it will not do</span>
-      <p>No scores, labels, personality types, diagnoses, intelligence claims, or predictions. Observations stay within the session they came from and are never combined into a profile. Where the conversation has not given enough to go on, the reflection is required to say so rather than fill the space. It is not therapy, medical care, or an emergency service, and it says that before a session begins.</p>
-    </div>
+    <p style="margin-top: 26px;">It gives no scores, labels, personality types, diagnoses or predictions, and never builds a profile across sessions. When there isn't enough to go on, the reflection has to say so. It is not therapy, medical care or an emergency service, and it says so before a session starts.</p>
 
     <div class="proof-notice">
-      <strong>Status:</strong> private beta, adults only, ahead of its first outside tester. Public launch and payments are locked behind a written checklist. A full evaluation run in November 2026 first failed, was fixed, and on the final pass of the local build 19 checks passed mechanically and none failed. Five more need a human reader, and the billing and cross-user isolation tests have not been run, so the launch threshold is not yet met. Testing is by invitation; adults interested in taking part can reach out via the contact section below.
+      <strong>Status:</strong> private beta for adults, before its first outside tester. Launch and payments stay locked behind a written checklist. The latest full evaluation of the local build passed all 19 automated checks after an earlier failed run was fixed. Five checks still need a human reviewer, and billing and the checks that one user can't see another's data haven't been run, so it isn't ready to launch. Adults interested in testing can get in touch.
     </div>
   </section>
 
   <section id="how">
-    <h2><span class="num">VIII.</span>How I Work</h2>
+    <h2>How I work</h2>
     <ol class="how">
       <li>Identify the real failure mode.</li>
       <li>Reduce the problem to its smallest honest unit.</li>
       <li>Build within clearly defined boundaries.</li>
       <li>Test systems under ambiguity and operational pressure.</li>
     </ol>
-    <div class="how-note">If a framework cannot hold up under uncertainty, drift, or edge-case pressure, it gets revised before deployment.</div>
+    <p class="how-note">If a framework cannot hold up under uncertainty, drift, or edge-case pressure, it gets revised before deployment.</p>
   </section>
+</main>
 
-  <section id="focus">
-    <h2><span class="num">IX.</span>Focus</h2>
-    <p>This is independent work on practical AI governance, reasoning integrity, and clear communication. The systems are deliberately portable: they are designed to work independently of any single AI provider or model.</p>
-    <p class="lede" style="margin-bottom: 20px;">It is designed for:</p>
-    <ul class="focus-list">
-      <li>AI governance and reasoning systems</li>
-      <li>Human-centered AI operations</li>
-      <li>Decision-support systems</li>
-      <li>AI interaction literacy and enablement</li>
-    </ul>
-  </section>
-
-  <footer class="contact" id="contact">
-    <h2><span class="num">X.</span>Contact</h2>
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
     <div class="name">Phillip Packer</div>
     <div class="loc">Independent AI Systems Designer · Phoenix, Arizona</div>
     <a class="email" href="mailto:itf.framework@gmail.com">itf.framework@gmail.com</a>
     <div class="fine">© 2026 Phillip Packer</div>
-  </footer>
-</div>
-
-<script>
-  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var counted = new WeakSet();
-  function animateCount(el) {
-    if (counted.has(el)) return;
-    counted.add(el);
-    var target = parseInt(el.getAttribute('data-count'), 10);
-    el.textContent = '0';
-    var start = null;
-    var duration = 900;
-    function step(ts) {
-      if (!start) start = ts;
-      var progress = Math.min((ts - start) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.round(eased * target);
-      if (progress < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-  // The markup already carries the real numbers; each one is reset to 0 only at
-  // the instant it starts animating. No-JS, reduced-motion, crawlers, a never-
-  // scrolled-to stat, or a hidden tab all keep the true value on screen.
-  var targets = document.querySelectorAll('.stat-box .n[data-count]');
-  if ('IntersectionObserver' in window && !prefersReduced) {
-    var io = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) animateCount(entry.target);
-      });
-    }, { threshold: 0.4 });
-    targets.forEach(function(t) { io.observe(t); });
-  }
-</script>
+  </div>
+</footer>
 
 </body>
 </html>
